@@ -7,7 +7,8 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # ./users.nix
+     ../../roles/users.nix
+     ../../roles/work.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -93,10 +94,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-  ];
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
