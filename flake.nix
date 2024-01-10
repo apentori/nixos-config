@@ -20,13 +20,9 @@
     self,
     nixpkgs,
     ...
-  }: let
-     forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
+  }@inputs:
+    let
+      system = "x86_64-linux";
     ];
   in {
     # NixOS configuration entrypoint
@@ -34,7 +30,7 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       pandora = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs;};
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
       };
