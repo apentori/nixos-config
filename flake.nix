@@ -23,7 +23,6 @@
   }@inputs:
     let
       system = "x86_64-linux";
-    ];
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
