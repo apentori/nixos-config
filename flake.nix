@@ -31,7 +31,7 @@
       pandora = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         # > Our main nixos configuration file <
-        modules = [./nixos/configuration.nix];
+        modules = [./hosts/packages/configuration.nix];
       };
     };
   };
