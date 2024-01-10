@@ -28,23 +28,6 @@
       allowUnfree = true;
     };
   };
-
-  nix.nixPath = ["/etc/nix/path"];
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
-
-  nix.settings = {
-    # Enable flakes and new 'nix' command
-    experimental-features = "nix-command flakes";
-    # Deduplicate and optimize nix store
-    auto-optimise-store = true;
-  };
-
   time.timeZone = "Europe/Madrid";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -101,7 +84,7 @@
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
       ];
-      extraGroups = ["wheel", "networkmanager"];
+      extraGroups = ["wheel" "networkmanager"];
       packages = with pkgs; [
         firefox
         brave
@@ -109,7 +92,6 @@
       ];
     };
   };
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     vim
