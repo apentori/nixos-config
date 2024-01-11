@@ -1,6 +1,42 @@
 { pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    # Utility
+    file zsh bash man-pages sudo bc lsb-release uptime
+    zip unzip
+    # monitoring
+    htop 
+    # Code
+    neovim jq fzf silver-searcher git 
+    # Networking
+    wget curl nmap nettols traceroute dnsutils
+    # file system
+    ncdu zfs zfstools
+    # security
+    pass openssl
+  ];
+  # Shell 
+  programs.zsh.enable =  true;
+  users.defaultUserShell = pkgs.zsh;
+  
+  # Editor
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
+  };
+
+    # Editor
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
+  # Uptime tracker
+  services.uptimed.enable = true;
+
   users.users.irotnep.packages = with pkgs; [
     # Web 
     firefox brave
@@ -9,9 +45,6 @@
     # Note 
     obsidian
   ];
-  environment.systemPackages = with pkgs; [
-    neovim vim
-    wget
-  ];
+
 
 }

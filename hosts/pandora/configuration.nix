@@ -8,8 +8,7 @@
   # You can import other NixOS modules here
   imports = [
      ../../roles/users.nix
-     ../../roles/work.nix
-
+     ../../roles/default.nix
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -78,22 +77,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-
-  users.users = {
-    irotnep = {
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-      ];
-      extraGroups = ["wheel" "networkmanager"];
-      packages = with pkgs; [
-        firefox
-        brave
-        discord
-      ];
-    };
-  };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
