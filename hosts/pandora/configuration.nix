@@ -7,10 +7,10 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-     ../../roles/users.nix
-     ../../roles/default.nix
-    # Import your generated (nixos-generate-config) hardware configuration
+     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ../../roles/users.nix
+    ../../roles/default.nix
   ];
   # bootloader
   boot.loader.grub.enable = true;
