@@ -13,11 +13,45 @@
     ../../roles/default.nix
   ];
   # bootloader
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-  
-  networking.hostName = "pandora";
+  boot.loader.grub = {
+    enable = true;
+    zfsSupport = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    mirroredBoots = [
+      { devices = [ "nodev"]; path = "/boot"; }
+    ];
+  };
+  fileSystems."/" =
+    { device = "zpool/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "zpool/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var" =
+    { device = "zpool/var";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "zpool/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/70A6-BB00";
+      fsType = "vfat";
+    };
+
+  swapDevices = [ ];
+  networking =  {
+      hostName = "pandora";
+      hostId = "eac7c10f";
+  };
   networking.networkmanager.enable =  true;
   
   nixpkgs = {
@@ -77,6 +111,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  nixpkgs.config.permittedInsecurePackages = [
+      "electron-25.9.0"
+  ];
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }

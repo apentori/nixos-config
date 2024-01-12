@@ -3,14 +3,14 @@
 {
   environment.systemPackages = with pkgs; [
     # Utility
-    file zsh bash man-pages sudo bc lsb-release uptime
+    file zsh bash man-pages sudo bc lsb-release uptimed
     zip unzip
     # monitoring
     htop 
     # Code
     neovim jq fzf silver-searcher git 
     # Networking
-    wget curl nmap nettols traceroute dnsutils
+    wget curl nmap nettools traceroute dnsutils
     # file system
     ncdu zfs zfstools
     # security
