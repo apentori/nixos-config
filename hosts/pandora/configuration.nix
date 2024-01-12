@@ -18,36 +18,9 @@
     zfsSupport = true;
     efiSupport = true;
     efiInstallAsRemovable = true;
-    mirroredBoots = [
-      { devices = [ "nodev"]; path = "/boot"; }
-    ];
+    devices = [ "/dev/disk/by-uuid/EDDE-5CEC" ]
   };
-  fileSystems."/" =
-    { device = "zpool/root";
-      fsType = "zfs";
-    };
-
-  fileSystems."/nix" =
-    { device = "zpool/nix";
-      fsType = "zfs";
-    };
-
-  fileSystems."/var" =
-    { device = "zpool/var";
-      fsType = "zfs";
-    };
-
-  fileSystems."/home" =
-    { device = "zpool/home";
-      fsType = "zfs";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/70A6-BB00";
-      fsType = "vfat";
-    };
-
-  swapDevices = [ ];
+  
   networking =  {
       hostName = "pandora";
       hostId = "eac7c10f";
