@@ -13,13 +13,12 @@
     ../../roles/default.nix
   ];
   # bootloader
-  boot.loader.grub = {
-    enable = true;
-    zfsSupport = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    devices = [ "/dev/disk/by-uuid/8312215300333682619" ];
-  };
+  boot.loader.grub.enable = false;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot = {
+      enable = true;
+      configurationLimit=10;
+    }
   
   networking =  {
       hostName = "pandora";

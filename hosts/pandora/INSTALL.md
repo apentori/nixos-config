@@ -5,6 +5,7 @@ Open a console on installer
   * `parted /dev/sda -- mklabel gpt`
   * `parted /dev/sda  -- mkpart 'EFI'  2MiB 1GiB set 1 esp on`
   * `parted /dev/sda -- mkpart 'ZFS'   '100%'`
+  * `parted /dev/sda -- set 3 boot on`
 * Create ZFS pool with encryption and mount point
 ```shell
 $ zpool create -O encryption=on -O keyformat=passphrase -O keylocation=prompt -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl zpool /dev/sda2
@@ -34,3 +35,7 @@ nixos-install --flake .#pandora
 ```
 
 > FIXME: See why the installation with github link doesn't work `nixos-install --flake https://github.com/apentori/nixos-config#pandora`
+
+
+warning: file system 'fat' doesn't support embedding. 
+installation of Grub on /dev/disk/by-uuid/UUID failed, no such file of directory
