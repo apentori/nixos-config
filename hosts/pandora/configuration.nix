@@ -18,7 +18,7 @@
     zfsSupport = true;
     efiSupport = true;
     efiInstallAsRemovable = true;
-    devices = [ "/dev/disk/by-uuid/EDDE-5CEC" ]
+    devices = [ "/dev/disk/by-uuid/8312215300333682619" ];
   };
   
   networking =  {
