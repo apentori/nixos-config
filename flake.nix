@@ -33,6 +33,11 @@
         # > Our main nixos configuration file <
         modules = [./hosts/pandora/configuration.nix];
       };
-    };
+      achilleus = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        # > Our main nixos configuration file <
+        modules = [./hosts/achilleus/configuration.nix];
+      };
+   };
   };
 }
