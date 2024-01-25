@@ -3,7 +3,8 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url  = "github:nixos/nixpkgs/nixos-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +20,7 @@
   outputs = {
     self,
     nixpkgs,
+    unstable,
     ...
   }@inputs:
     let

@@ -5,16 +5,18 @@
     # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
     zip unzip
+    thefuck
     # monitoring
     htop 
     # Code
-    neovim jq fzf silver-searcher git 
+    neovim jq fzf silver-searcher git
+    gcc
     # Networking
     wget curl nmap nettools traceroute dnsutils
     # file system
     ncdu zfs zfstools
     # security
-    pass openssl
+    pass openssl gnupg gnupg1
   ];
   # Shell 
   programs.zsh.enable =  true;
