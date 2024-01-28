@@ -12,12 +12,34 @@
     neovim jq fzf silver-searcher git
     gcc
     # Networking
-    wget curl nmap nettools traceroute dnsutils
+    wget curl nmap nettools traceroute dnsutils wirelesstools
     # file system
     ncdu zfs zfstools
     # security
     pass openssl gnupg gnupg1
-  ];
+
+    hyprland xwayland polkit
+    waybar dunst
+    libnotify
+    swww # wallpaper 
+    kitty alacritty # terminals
+    rofi-wayland # app launcher
+    networkmanagerapplet #network 
+    pipewire # screen sharing
+    swaylock # Lock screen
+    wlroots #Dynamic Menu
+    wl-clipboard # CopyPast Utilities
+    wofi
+    mako
+    yad
+    pastel
+    xfce.thunar # file manger
+    pulsemixer
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      }))
+
+    ];
   # Shell 
   programs.zsh.enable =  true;
   users.defaultUserShell = pkgs.zsh;
@@ -47,6 +69,4 @@
     # Note 
     obsidian
   ];
-
-
 }

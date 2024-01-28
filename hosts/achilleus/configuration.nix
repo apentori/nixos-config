@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+#      ../../roles/windows.nix
       ../../roles/users.nix
       ../../roles/default.nix
       ../../roles/work.nix
@@ -26,6 +27,10 @@
   networking = {
     hostName = "achilleus"; # Define your hostname.
     hostId = "8425e349";
+    wireless = {
+      enable = true;
+      interfaces = [ "wlp2s0" ];
+    };
   };
   nixpkgs = {
     # You can add overlays here
@@ -35,6 +40,7 @@
       allowUnfree = true;
     };
   };
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
   time.timeZone = "Europe/Madrid";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -59,20 +65,47 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver= {
+  #   enable = true;
+  # # Enable the GNOME Desktop Environment.
+  #   displayManager.gdm.enable = true;
+  #   desktopManager.gnome.enable = true;
+  # 
+  # # Enable touchpad support (enabled default in most desktopManager).
+  #   libinput.enable = true;
+  # };
+  programs.waybar.enable = true;
+  programs.hyprland = {
+     enable = true;
+     xwayland.enable = true;
+    };
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
   
-
+#     environment.systemPackages = [
+#       (pkgs.waybar.overrideAttrs (oldAttrs: {
+#         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+#         }))
+#     ];
+   hardware = {
+      opengl.enable =  true;
+    };
+ 
+    xdg.portal.enable =  true;
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
     # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+  hardware.pulseaudio.enable = false;
 
   nixpkgs.config.permittedInsecurePackages = [
       "electron-25.9.0"
