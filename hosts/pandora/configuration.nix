@@ -18,7 +18,7 @@
   boot.loader.systemd-boot = {
       enable = true;
       configurationLimit=10;
-    }
+  };
   
   networking =  {
       hostName = "pandora";
