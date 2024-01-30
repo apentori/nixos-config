@@ -10,36 +10,41 @@
     htop 
     # Code
     neovim jq fzf silver-searcher git
-    gcc
+    gcc mpv scdoc busybox
     # Networking
-    wget curl nmap nettools traceroute dnsutils wirelesstools
+    wget curl nmap nettools traceroute dnsutils wirelesstools blueman
     # file system
     ncdu zfs zfstools
     # security
     pass openssl gnupg gnupg1
 
     hyprland xwayland polkit
-    waybar dunst
-    libnotify
+    waybar 
+    dunst # Notif daemon
     swww # wallpaper 
     kitty alacritty # terminals
     rofi-wayland # app launcher
     networkmanagerapplet #network 
     pipewire # screen sharing
-    swaylock # Lock screen
-    wlroots #Dynamic Menu
+    greetd.tuigreet
+  #  pavucontrol
+    swaylock swaylock-effects swayidle wlogout swaybg  #Login etc..  
+    wlroots # Dynamic Menu
     wl-clipboard # CopyPast Utilities
-    wofi
+    brightnessctl # brightness control
     mako
-    yad
-    pastel
-    xfce.thunar # file manger
     pulsemixer
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       }))
-
+      meson
+   swayosd
     ];
+  
+  fonts.packages = with pkgs; [
+    nerdfonts
+    meslo-lgs-nf
+  ];
   # Shell 
   programs.zsh.enable =  true;
   users.defaultUserShell = pkgs.zsh;
@@ -69,4 +74,16 @@
     # Note 
     obsidian
   ];
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+#        user="irotnep";
+      };
+    };
+  };
+  # avoid swaylock telling wrong password
+  security.pam.services.swaylock = {};
 }

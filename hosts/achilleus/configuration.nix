@@ -55,23 +55,6 @@
     LC_TIME = "es_ES.UTF-8";
   };
 
-
-  #  console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  # services.xserver= {
-  #   enable = true;
-  # # Enable the GNOME Desktop Environment.
-  #   displayManager.gdm.enable = true;
-  #   desktopManager.gnome.enable = true;
-  # 
-  # # Enable touchpad support (enabled default in most desktopManager).
-  #   libinput.enable = true;
-  # };
   programs.hyprland = {
      enable = true;
      xwayland.enable = true;
@@ -82,111 +65,19 @@
   };
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
-    style = ''
-      ${builtins.readFile "${pkgs.waybar}/etc/xdg/waybar/style.css"}
-
-      window#waybar {
-        background: transparent;
-        border-bottom: none;
-      }
-
-      * {
-        ${if config.hostId == "yoga" then ''
-        font-size: 18px;
-      '' else ''
-
-        ''}
-      }
-    '';
-    settings = [{
-      height = 30;
-      layer = "top";
-      position = "bottom";
-      tray = { spacing = 10; };
-      modules-center = [ "sway/window" ];
-      modules-left = [ "sway/workspaces" "sway/mode" ];
-      modules-right = [
-        "pulseaudio"
-        "network"
-        "cpu"
-        "memory"
-        "temperature"
-        "battery" 
-        "clock"
-        "tray"
-      ];
-      battery = {
-        format = "{capacity}% {icon}";
-        format-alt = "{time} {icon}";
-        format-charging = "{capacity}% ";
-        format-icons = [ "" "" "" "" "" ];
-        format-plugged = "{capacity}% ";
-        states = {
-          critical = 15;
-          warning = 30;
-        };
-      };
-      clock = {
-        format-alt = "{:%Y-%m-%d}";
-        tooltip-format = "{:%Y-%m-%d | %H:%M}";
-      };
-      cpu = {
-        format = "{usage}% ";
-        tooltip = false;
-      };
-      memory = { format = "{}% "; };
-      network = {
-        interval = 1;
-        format-alt = "{ifname}: {ipaddr}/{cidr}";
-        format-disconnected = "Disconnected ⚠";
-        format-ethernet = "{ifname}: {ipaddr}/{cidr}   up: {bandwidthUpBits} down: {bandwidthDownBits}";
-        format-linked = "{ifname} (No IP) ";
-        format-wifi = "{essid} ({signalStrength}%) ";
-      };
-      pulseaudio = {
-        format = "{volume}% {icon} {format_source}";
-        format-bluetooth = "{volume}% {icon} {format_source}";
-        format-bluetooth-muted = " {icon} {format_source}";
-        format-icons = {
-          car = "";
-          default = [ "" "" "" ];
-          handsfree = "";
-          headphones = "";
-          headset = "";
-          phone = "";
-          portable = "";
-        };
-        format-muted = " {format_source}";
-        format-source = "{volume}% ";
-        format-source-muted = "";
-        on-click = "pavucontrol";
-      };
-      "sway/mode" = { format = ''<span style="italic">{}</span>''; };
-      temperature = {
-        critical-threshold = 80;
-        format = "{temperatureC}°C {icon}";
-        format-icons = [ "" "" "" ];
-      };
-    }];
-
   };
-#     environment.systemPackages = [
-#       (pkgs.waybar.overrideAttrs (oldAttrs: {
-#         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-#         }))
-#     ];
-   hardware = {
+
+  hardware = {
       opengl.enable =  true;
       bluetooth.enable = true;
-      pulseaudio.enable = true;
-    };
+  };
  
-    xdg.portal.enable =  true;
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.enable =  true;
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
     # Enable sound.
   sound.enable = true;
   security.rtkit.enable = true;
+  services.blueman.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
