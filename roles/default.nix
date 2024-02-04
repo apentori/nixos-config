@@ -25,25 +25,31 @@
     kitty alacritty # terminals
     rofi-wayland # app launcher
     networkmanagerapplet #network 
-    pipewire # screen sharing
+    pipewire
+    wireplumber # screen sharing
     greetd.tuigreet
-  #  pavucontrol
-    swaylock swaylock-effects swayidle wlogout swaybg  #Login etc..  
+    pavucontrol
+    swaylock-effects swayidle wlogout swaybg  #Login etc..  
     wlroots # Dynamic Menu
     wl-clipboard # CopyPast Utilities
     brightnessctl # brightness control
     mako
-    pulsemixer
+    cliphist # Clipboard manager
+    pulsemixer # sound
+    swayosd
+    xdg-desktop-portal-wlr # Desktop portal
+    viewnior # image manager 
+    xfce.thunar # filemanager
+    slurp grim # screen shot
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       }))
       meson
-   swayosd
     ];
   
   fonts.packages = with pkgs; [
     nerdfonts
-    meslo-lgs-nf
+   meslo-lgs-nf
   ];
   # Shell 
   programs.zsh.enable =  true;
