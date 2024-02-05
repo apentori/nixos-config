@@ -45,6 +45,7 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       }))
       meson
+      gvfs
     ];
   
   fonts.packages = with pkgs; [
