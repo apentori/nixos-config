@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Utility
+  # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
     zip unzip
     thefuck
@@ -39,7 +39,8 @@
     swayosd
     xdg-desktop-portal-wlr # Desktop portal
     viewnior # image manager 
-    xfce.thunar # filemanager
+    gnome.nautilus # file manager
+    libsForQt5.koko # image reader 
     slurp grim # screen shot
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];

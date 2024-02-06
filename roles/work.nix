@@ -1,27 +1,46 @@
 { pkgs, ... }:
 
-{
+let 
+  # For details see: https://nixos.wiki/wiki/Python
+  myPythonPkgs = _: with (pkgs.python310Packages); [
+    ipython pip
+    # Development
+    setuptools retry yapf mohawk grip pyyaml jinja2
+    # Devops
+    boto3 wakeonlan PyGithub python-hosts cloudflare
+    # Security
+    pyopenssl cryptography passlib
+    # Databases
+    elasticsearch elastic-transport psycopg2
+    # Statistics
+    matplotlib pandas seaborn
+    # Misc
+    sh backoff psutil
+    ansible-core
+  ];
+  myPython = pkgs.python310.withPackages myPythonPkgs;
 
+in {
    /* Required tools and libraries. */
   environment.systemPackages = with pkgs; [
     ccid opensc pcsctools
     pinentry
-
+    gnumake
     terraform
   ];
-
 
   users.users.irotnep.packages = with pkgs; [
     # DevOps
     ansible_2_14
     # Security
-    bitwarden #unstable.bitwarden-cli yubikey-manager
+    bitwarden bitwarden-cli 
     # Network
     netcat websocat tcpdump whois
     # Cloud
     awscli s3cmd #unstable.doctl google-cloud-sdk
     scaleway-cli aliyun-cli hcloud
-
+    # Python dev
+    myPython
     # Utils
     jsonnet appimage-run 
     # Yubikye
