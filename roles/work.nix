@@ -27,6 +27,8 @@ in {
     pinentry
     gnumake
     terraform
+    ripgrep
+    docker docker-compose
   ];
 
   users.users.irotnep.packages = with pkgs; [
@@ -48,7 +50,7 @@ in {
     yubikey-manager
     pinentry
   ];
-
+  users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
   services.udev.packages = with pkgs; [
     yubikey-personalization
@@ -67,4 +69,5 @@ in {
     #pinentryFlavor = "gnome3";
     pinentryFlavor = "gtk2";
   };
+  virtualisation.docker.enable = true;
 } 

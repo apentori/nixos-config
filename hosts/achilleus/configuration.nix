@@ -8,10 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#      ../../roles/windows.nix
+      ../../roles/hyrpland.nix
       ../../roles/users.nix
       ../../roles/default.nix
-     # ../../roles/personnal.nix
       ../../roles/work.nix
     ];
 
@@ -31,9 +30,6 @@
     networkmanager.enable = true;
   };
   nixpkgs = {
-    # You can add overlays here
-    overlays = [
-    ];
     config = {
       allowUnfree = true;
     };
@@ -55,17 +51,6 @@
     LC_TIME = "es_ES.UTF-8";
   };
 
-  programs.hyprland = {
-     enable = true;
-     xwayland.enable = true;
-    };
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-  programs.waybar = {
-    enable = true;
-  };
 
   hardware = {
       opengl.enable =  true;
