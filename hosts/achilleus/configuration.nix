@@ -12,6 +12,7 @@
       ../../roles/users.nix
       ../../roles/default.nix
       ../../roles/work.nix
+      ../../roles/personnal.nix
     ];
 
    boot.loader.grub = {
