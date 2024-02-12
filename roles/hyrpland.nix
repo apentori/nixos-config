@@ -4,7 +4,8 @@
   environment.systemPackages = with pkgs; [
     hyprland xwayland polkit
     waybar 
-    dunst # Notif daemon
+    #dunst # Notif daemon
+    swaynotificationcenter # notification daemon
     swww # wallpaper 
     kitty alacritty # terminals
     rofi-wayland # app launcher
