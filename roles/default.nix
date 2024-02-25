@@ -21,7 +21,9 @@
   
   fonts.packages = with pkgs; [
     nerdfonts
-   meslo-lgs-nf
+    meslo-lgs-nf
+    fira-code
+    fira-code-symbols
   ];
   # Shell 
   programs.zsh.enable =  true;
