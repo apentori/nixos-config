@@ -17,6 +17,7 @@
     ncdu zfs zfstools
     # security
     pass openssl gnupg gnupg1
+    xdg-utils
   ];
   
   fonts.packages = with pkgs; [
