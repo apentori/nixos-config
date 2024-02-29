@@ -7,7 +7,7 @@
     zip unzip
     thefuck
     # monitoring
-    htop 
+    btop 
     # Code
     neovim jq fzf silver-searcher git
     gcc mpv scdoc busybox
