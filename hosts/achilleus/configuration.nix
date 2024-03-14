@@ -24,6 +24,12 @@
       { devices = [ "nodev"]; path = "/boot"; }
     ];
   };
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
+  environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_lqx.system76-power
+    system76-firmware
+  ];
 
   networking = {
     hostName = "achilleus"; # Define your hostname.
@@ -51,7 +57,12 @@
     LC_TELEPHONE = "es_ES.UTF-8";
     LC_TIME = "es_ES.UTF-8";
   };
-
+  services.xserver={
+    enable = true;
+    layout = "us";
+    xkbVariant="altgr-intl";
+    videoDrivers = [ "amdgpu" ];
+  };
 
   hardware = {
       opengl.enable =  true;
@@ -70,11 +81,18 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
   nixpkgs.config.permittedInsecurePackages = [
       "electron-25.9.0"
   ];
+
+  # System76
+  hardware.system76={
+    enableAll = true;
+    kernel-modules.enable = true;
+  };
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }

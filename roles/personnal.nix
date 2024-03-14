@@ -7,5 +7,7 @@
   winetricks
   # native wayland support (unstable)
   wineWowPackages.waylandFull
+  # Finance tools
+  denaro
 ];
 }

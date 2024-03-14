@@ -48,7 +48,8 @@ in {
     # Yubikye
     yubikey-agent
     yubikey-manager
-    pinentry
+    pinentry 
+    vagrant
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */

@@ -34,7 +34,10 @@
       achilleus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         # > Our main nixos configuration file <
-        modules = [./hosts/achilleus/configuration.nix];
+        modules = [
+        ./hosts/achilleus/configuration.nix
+        inputs.hardware.nixosModules.system76
+        ];
       };
    };
   };
