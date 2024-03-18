@@ -36,7 +36,6 @@
         # > Our main nixos configuration file <
         modules = [
         ./hosts/achilleus/configuration.nix
-        inputs.hardware.nixosModules.system76
         ];
       };
    };

@@ -27,7 +27,6 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_lqx.system76-power
     system76-firmware
   ];
 
@@ -91,7 +90,6 @@
   # System76
   hardware.system76={
     enableAll = true;
-    kernel-modules.enable = true;
   };
   system.stateVersion = "23.11"; # Did you read the comment?
 

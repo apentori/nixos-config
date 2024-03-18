@@ -7,7 +7,7 @@
     zip unzip
     thefuck
     # monitoring
-    btop 
+    btop psensor
     # Code
     neovim jq fzf silver-searcher git
     gcc mpv scdoc busybox
