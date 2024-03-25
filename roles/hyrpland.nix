@@ -32,6 +32,7 @@
       }))
       meson
       gvfs
+      playerctl
   ];
 
   services.greetd = {
