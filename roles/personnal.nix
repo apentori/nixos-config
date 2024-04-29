@@ -9,5 +9,6 @@
   wineWowPackages.waylandFull
   # Finance tools
   denaro
+  qemu
 ];
 }
