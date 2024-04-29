@@ -50,6 +50,7 @@ in {
     yubikey-manager
     pinentry 
     vagrant
+    vault
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
