@@ -17,6 +17,7 @@ let
     # Misc
     sh backoff psutil
     ansible-core
+    hvac
   ];
   myPython = pkgs.python310.withPackages myPythonPkgs;
 
