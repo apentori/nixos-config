@@ -2,7 +2,7 @@
 
 let 
   # For details see: https://nixos.wiki/wiki/Python
-  myPythonPkgs = _: with (pkgs.python310Packages); [
+  myPythonPkgs = _: with (pkgs.python312Packages); [
     ipython pip
     # Development
     setuptools retry yapf mohawk grip pyyaml jinja2
@@ -30,11 +30,12 @@ in {
     terraform
     ripgrep
     docker docker-compose
+    marp-cli
   ];
 
   users.users.irotnep.packages = with pkgs; [
     # DevOps
-    ansible_2_14
+    ansible
     # Security
     bitwarden bitwarden-cli 
     # Network

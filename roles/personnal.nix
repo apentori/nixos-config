@@ -10,5 +10,6 @@
   # Finance tools
   denaro
   qemu
+  ungoogled-chromium
 ];
 }

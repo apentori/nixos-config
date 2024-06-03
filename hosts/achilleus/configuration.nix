@@ -85,6 +85,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
       "electron-25.9.0"
+      "vault-1.14.10"
   ];
 
   # System76
@@ -98,7 +99,6 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-
   system.autoUpgrade = {
       enable = true;
 };
