@@ -38,6 +38,8 @@ in {
     ansible
     # Security
     bitwarden bitwarden-cli 
+    # Matrix client fallback communication
+    element-desktop
     # Network
     netcat websocat tcpdump whois
     # Cloud
