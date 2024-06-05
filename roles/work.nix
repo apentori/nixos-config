@@ -2,7 +2,7 @@
 
 let 
   # For details see: https://nixos.wiki/wiki/Python
-  myPythonPkgs = _: with (pkgs.python312Packages); [
+  myPythonPkgs = _: with (pkgs.python310Packages); [
     ipython pip
     # Development
     setuptools retry yapf mohawk grip pyyaml jinja2
@@ -25,12 +25,12 @@ in {
    /* Required tools and libraries. */
   environment.systemPackages = with pkgs; [
     ccid opensc pcsctools
-    pinentry
     gnumake
     terraform
     ripgrep
     docker docker-compose
     marp-cli
+    pinentry
   ];
 
   users.users.irotnep.packages = with pkgs; [
@@ -71,7 +71,7 @@ in {
     enableSSHSupport = true;
     enableBrowserSocket = true;
     #pinentryFlavor = "gnome3";
-    pinentryFlavor = "gtk2";
+    #pinentryFlavor = "gtk2";
   };
   virtualisation.docker.enable = true;
 } 
