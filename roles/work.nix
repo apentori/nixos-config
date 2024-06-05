@@ -53,6 +53,7 @@ in {
     pinentry 
     vagrant
     vault
+    zeal
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
