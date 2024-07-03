@@ -29,7 +29,11 @@
   # Shell 
   programs.zsh.enable =  true;
   users.defaultUserShell = pkgs.zsh;
-  
+ 
+  programs.fzf = {
+    keybindings = true;
+    fuzzyCompletion = true;
+  };
   # Editor
   programs.neovim = {
     enable = true;

@@ -18,6 +18,7 @@
     self,
     nixpkgs,
     unstable,
+    hardware,
     ...
   }@inputs:
     let
@@ -36,6 +37,7 @@
         # > Our main nixos configuration file <
         modules = [
         ./hosts/achilleus/configuration.nix
+        hardware.nixosModules.system76
         ];
       };
    };

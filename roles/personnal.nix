@@ -11,5 +11,6 @@
   denaro
   qemu
   ungoogled-chromium
+  keepassxc
 ];
 }

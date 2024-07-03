@@ -28,6 +28,9 @@
 
   environment.systemPackages = with pkgs; [
     system76-firmware
+    linuxKernel.packages.linux_zen.system76
+    linuxKernel.packages.linux_zen.system76-scheduler
+#    linuxKernel.packages.linux_zen.system76-acpi
   ];
 
   networking = {
@@ -58,14 +61,20 @@
   };
   services.xserver={
     enable = true;
-    layout = "us";
-    xkbVariant="altgr-intl";
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
     videoDrivers = [ "amdgpu" ];
   };
 
   hardware = {
       opengl.enable =  true;
       bluetooth.enable = true;
+      system76 = {
+        enableAll = true;
+        kernel-modules.enable = true;
+      };
   };
  
   xdg.portal.enable =  true;
@@ -88,10 +97,6 @@
       "vault-1.14.10"
   ];
 
-  # System76
-  hardware.system76={
-    enableAll = true;
-  };
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.gc = {
