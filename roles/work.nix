@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
-let 
+let
   # For details see: https://nixos.wiki/wiki/Python
-  myPythonPkgs = _: with (pkgs.python310Packages); [
+  myPythonPkgs = _: with (pkgs.python311Packages); [
     ipython pip
     # Development
     setuptools retry yapf mohawk grip pyyaml jinja2
@@ -19,7 +19,7 @@ let
     ansible-core
     hvac
   ];
-  myPython = pkgs.python310.withPackages myPythonPkgs;
+  myPython = pkgs.python311.withPackages myPythonPkgs;
 
 in {
    /* Required tools and libraries. */
@@ -39,7 +39,7 @@ in {
     # Security
     bitwarden bitwarden-cli 
     # Matrix client fallback communication
-    element-desktop
+    element-web
     # Network
     netcat websocat tcpdump whois
     # Cloud
@@ -49,10 +49,8 @@ in {
     myPython
     # Utils
     jsonnet appimage-run 
-    # Yubikye
-    yubikey-agent
-    yubikey-manager
-    pinentry 
+    # Yubikey
+    yubikey-agent yubikey-manager pinentry 
     vagrant
     vault
     zeal
