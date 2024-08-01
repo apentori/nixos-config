@@ -7,7 +7,7 @@
     zip unzip
     thefuck
     # monitoring
-    btop psensor
+    btop psensor usbutils
     # Code
     neovim jq fzf silver-searcher git
     gcc mpv scdoc busybox
@@ -18,6 +18,8 @@
     # security
     pass openssl gnupg gnupg1
     xdg-utils
+    # Monitors and Docks
+    displaylink
   ];
   
   fonts.packages = with pkgs; [
