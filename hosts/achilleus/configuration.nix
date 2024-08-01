@@ -30,7 +30,11 @@
     system76-firmware
     linuxKernel.packages.linux_zen.system76
     linuxKernel.packages.linux_zen.system76-scheduler
+    linuxKernel.packages.linux_zen.evdi
 #    linuxKernel.packages.linux_zen.system76-acpi
+    catppuccin-gtk
+    catppuccin-kvantum
+    catppuccin-cursors.macchiatoTeal
   ];
 
   networking = {
@@ -38,11 +42,25 @@
     hostId = "8425e349";
     networkmanager.enable = true;
   };
+
+  catppuccin = {
+    enable = true;
+  };
+
+  environment.variables  = {
+    GTK_THEME = "catppuccin-macchiato-teal-standard";
+    XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
+    XCURSOR_SIZE = "24";
+    HYPRCURSOR_THEME = "Catppuccin-Macchiato-Teal";
+    HYPRCURSOR_SIZE = "24";
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
     };
   };
+
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   time.timeZone = "Europe/Madrid";
 

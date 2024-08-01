@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     hyprland xwayland polkit
+    xdg-desktop-portal-hyprland
     waybar 
     #dunst # Notif daemon
     swaynotificationcenter # notification daemon
@@ -33,6 +34,13 @@
       meson
       gvfs
       playerctl
+
+      pyprland
+    hyprpicker
+    hyprcursor
+    hyprlock
+    hypridle
+    hyprpaper
   ];
 
   services.greetd = {
@@ -46,8 +54,7 @@
   };
   # avoid swaylock telling wrong password
   security.pam.services.swaylock = {};
-  
-  
+   
   programs.hyprland = {
      enable = true;
      xwayland.enable = true;
@@ -59,4 +66,6 @@
   programs.waybar = {
     enable = true;
   };
+
+  services.hypridle.enable = true;
 }
