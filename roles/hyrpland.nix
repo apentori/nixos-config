@@ -5,9 +5,7 @@
     hyprland xwayland polkit
     xdg-desktop-portal-hyprland
     waybar 
-    #dunst # Notif daemon
     swaynotificationcenter # notification daemon
-    swww # wallpaper 
     kitty alacritty # terminals
     rofi-wayland # app launcher
     networkmanagerapplet #network 
@@ -15,7 +13,7 @@
     wireplumber # screen sharing
     greetd.tuigreet
     pavucontrol
-    swaylock-effects swayidle wlogout swaybg  #Login etc..  
+    wlogout swaybg  #Login etc..  
     wlroots # Dynamic Menu
     wl-clipboard # CopyPast Utilities
     brightnessctl # brightness control
