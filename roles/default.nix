@@ -18,8 +18,6 @@
     # security
     pass openssl gnupg gnupg1
     xdg-utils
-    # Monitors and Docks
-    displaylink
   ];
   
   fonts.packages = with pkgs; [
@@ -52,14 +50,5 @@
 
   # Uptime tracker
   services.uptimed.enable = true;
-
-  users.users.irotnep.packages = with pkgs; [
-    # Web 
-    firefox brave
-    # Communication 
-    discord
-    # Note 
-    obsidian
-  ];
 
   }

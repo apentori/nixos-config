@@ -122,6 +122,8 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  nix.settings.trusted-users = ["root" "irotnep" ];
   system.autoUpgrade = {
       enable = true;
 };

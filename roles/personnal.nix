@@ -12,5 +12,20 @@
   qemu
   ungoogled-chromium
   keepassxc
+
+  # Monitors and Docks
+  displaylink
+
 ];
+
+  users.users.irotnep.packages = with pkgs; [
+    # Web 
+    firefox brave
+    # Communication 
+    discord
+    # Note 
+    obsidian
+  ];
+
+
 }
