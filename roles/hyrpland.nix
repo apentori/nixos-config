@@ -6,7 +6,7 @@
     xdg-desktop-portal-hyprland
     waybar 
     swaynotificationcenter # notification daemon
-    kitty alacritty # terminals
+    alacritty # terminals
     rofi-wayland # app launcher
     networkmanagerapplet #network 
     pipewire
@@ -17,14 +17,10 @@
     wlroots # Dynamic Menu
     wl-clipboard # CopyPast Utilities
     brightnessctl # brightness control
-    mako
     cliphist # Clipboard manager
     pulsemixer # sound
-    swayosd
     xdg-desktop-portal-wlr # Desktop portal
-    viewnior # image manager 
     gnome.nautilus # file manager
-    libsForQt5.koko # image reader 
     slurp grim # screen shot
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
@@ -39,6 +35,11 @@
     hyprlock
     hypridle
     hyprpaper
+    # PDF
+    zathura
+    # media
+    imv mpv
+    yazi
   ];
 
   services.greetd = {
