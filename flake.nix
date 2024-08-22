@@ -31,16 +31,20 @@
     nixosConfigurations = {
       pandora = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        # > Our main nixos configuration file <
         modules = [./hosts/pandora/configuration.nix];
       };
       achilleus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
-        # > Our main nixos configuration file <
         modules = [
         catppuccin.nixosModules.catppuccin
         ./hosts/achilleus/configuration.nix
         hardware.nixosModules.system76
+        ];
+      };
+      hyperion = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+        ./hosts/hyperion/configuration.nix
         ];
       };
    };
