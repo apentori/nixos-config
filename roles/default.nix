@@ -5,7 +5,7 @@
   # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
     zip unzip
-    thefuck
+    thefuck direnv
     # monitoring
     btop psensor usbutils
     # Code

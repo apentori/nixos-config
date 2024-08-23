@@ -31,7 +31,6 @@ in {
     docker docker-compose
     marp-cli
     pinentry
-    direnv
   ];
 
   users.users.irotnep.packages = with pkgs; [
