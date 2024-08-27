@@ -94,6 +94,11 @@ in {
           default = "/nimbus";
           description = "Base directory for Nimbus";
         };
+        jwtSecret = mkOption {
+          type = types.str;
+          default="/nimbus/jwtSecret";
+          description = "Path Of jwtSecret for geth API";
+        };
         extraArgs = mkOption {
           type = types.listOf types.str;
           default= [];
@@ -135,6 +140,7 @@ in {
             --rest=${boolToString cfg.rest.enable} ${optionalString cfg.rest.enable ''--rest-address=${cfg.rest.address} --rest-port=${toString cfg.rest.port} ''} \
             --metrics=${boolToString cfg.metrics.enable} ${optionalString cfg.metrics.enable ''--metrics-address=${cfg.metrics.address} --metrics-port=${toString cfg.metrics.port} ''} \
             ${if cfg.el != "" then "--el=${cfg.el}" else "--no-el"} \
+            --jwt-secret=${cfg.jwtSecret}  \
             ${escapeShellArgs cfg.extraArgs}
             '';
         Restart = "on-failure";

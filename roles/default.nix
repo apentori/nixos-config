@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -18,6 +18,8 @@
     # security
     pass openssl 
     xdg-utils
+
+    inputs.agenix.packages."${pkgs.system}".default
   ];
   
   fonts.packages = with pkgs; [

@@ -5,14 +5,12 @@
     # Nixpkgs
     nixpkgs.url  = "github:nixos/nixpkgs/nixos-24.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # TODO: Add any other flake you might need
     hardware.url = "github:nixos/nixos-hardware";
-
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
+    agenix.url = "github:ryantm/agenix";
+    # Thems 
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
+
   };
 
   outputs = {
@@ -20,6 +18,7 @@
     nixpkgs,
     unstable,
     hardware,
+    agenix,
     catppuccin,
     ...
   }@inputs:
@@ -29,11 +28,11 @@
       in {
         unstable = unstablePkgs;
       };
+    # Overlays-module makes "pkgs.unstable" available in configuration.nix
       overlayModule = ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay ]; });
       system = "x86_64-linux";
 
   in {
-    # Overlays-module makes "pkgs.unstable" available in configuration.nix
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -53,6 +52,7 @@
         specialArgs = {inherit inputs;};
         modules = [
         overlayModule
+        agenix.nixosModules.default
         ./hosts/hyperion/configuration.nix
         ];
       };
