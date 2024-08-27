@@ -24,8 +24,16 @@
     ...
   }@inputs:
     let
+      overlay = final: prev: let
+        unstablePkgs = import unstable { inherit (prev) system; config.allowUnfree = true; };
+      in {
+        unstable = unstablePkgs;
+      };
+      overlayModule = ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay ]; });
       system = "x86_64-linux";
+
   in {
+    # Overlays-module makes "pkgs.unstable" available in configuration.nix
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -44,6 +52,7 @@
       hyperion = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
+        overlayModule
         ./hosts/hyperion/configuration.nix
         ];
       };

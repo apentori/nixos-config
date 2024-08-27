@@ -31,6 +31,7 @@ in {
     docker docker-compose
     marp-cli
     pinentry
+    gnupg gnupg1
   ];
 
   users.users.irotnep.packages = with pkgs; [

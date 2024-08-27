@@ -27,5 +27,8 @@
     obsidian
   ];
 
-
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    theme = "agnoster";
+  };
 }

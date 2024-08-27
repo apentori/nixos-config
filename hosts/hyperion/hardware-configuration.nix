@@ -28,6 +28,17 @@
       fsType = "zfs";
     };
 
+  fileSystems."/nimbus" =
+    { device = "zpool/nimbus";
+      fsType = "zfs";
+      options = ["uid=5000" "gid=5000"];
+    };
+
+  fileSystems."/geth" =
+    { device = "zpool/geth";
+      fsType = "zfs";
+    };
+
   fileSystems."/boot1" =
     { device = "/dev/disk/by-uuid/2493-5B4B";
       fsType = "vfat";

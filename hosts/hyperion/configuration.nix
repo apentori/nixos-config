@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
       ../../roles/users.nix
       ../../roles/default.nix
+      ../../roles/servers.nix
+      ../../roles/go-ethereum.nix
+      ../../roles/nimbus-eth2.nix
     ];
   boot.loader.grub = {
     enable = true;
@@ -39,8 +42,9 @@
     nameservers = ["8.8.8.8"];
   };
 
-
- # List services that you want to enable:
+  systemd.tmpfiles.rules = [
+    "d /data/geth/data 760 irotnep ethereum"
+  ];
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -57,7 +61,10 @@
     enable = true;
   };
 
-  nix.settings.trusted-users = ["root" "irotnep" ];
+  nix.settings =  {
+    trusted-users = ["root" "irotnep" ];
+    experimental-features = [ "nix-command" "flakes" ];
+  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 

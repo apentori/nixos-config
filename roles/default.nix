@@ -5,7 +5,7 @@
   # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
     zip unzip
-    thefuck direnv
+    thefuck direnv oh-my-zsh
     # monitoring
     btop psensor usbutils
     # Code
@@ -16,7 +16,7 @@
     # file system
     ncdu zfs zfstools
     # security
-    pass openssl gnupg gnupg1
+    pass openssl 
     xdg-utils
   ];
   
@@ -29,7 +29,7 @@
   # Shell 
   programs.zsh.enable =  true;
   users.defaultUserShell = pkgs.zsh;
- 
+
   programs.fzf = {
     keybindings = true;
     fuzzyCompletion = true;

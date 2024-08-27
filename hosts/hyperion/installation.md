@@ -102,6 +102,8 @@ Create the differentes volumes:
 zfs create -o quota=50G -o reservation=50G zpool/root
 zfs create -o quota=50G -o reservation=50G zpool/nix
 zfs create -o quota=20G -o reservation=20G zpool/home
+zfs create -o quota=1.5T -o reservation=1.5T zpool/nimbus
+zfs create -o quota=1.5T -o reservation=1.5T zpool/geth
 ```
 
 ## NixOS installation
@@ -115,6 +117,9 @@ mount -t zfs zpool/home /mnt/home
 mount -t zfs zpool/nix /mnt/nix
 mount $DISK1-part1 /mnt/boot1
 mount $DISK2-part1 /mnt/boot2
+mkdir /mnt/nimbus /mnt/geth
+mount -t zfs zpool/nimbus /mnt/nimbus
+mount -t zfs zpool/geth /mnt/geth
 ```
 
 Generate the NixOS configuration
