@@ -13,6 +13,7 @@
       ../../roles/servers.nix
       ../../roles/go-ethereum.nix
       ../../roles/nimbus-eth2.nix
+      ../../roles/prometheus.nix
     ];
   boot.loader.grub = {
     enable = true;
