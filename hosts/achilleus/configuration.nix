@@ -28,10 +28,6 @@
 
   environment.systemPackages = with pkgs; [
     system76-firmware
-    linuxKernel.packages.linux_zen.system76
-    linuxKernel.packages.linux_zen.system76-scheduler
-    linuxKernel.packages.linux_zen.evdi
-#    linuxKernel.packages.linux_zen.system76-acpi
     catppuccin-gtk
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
