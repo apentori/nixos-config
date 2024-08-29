@@ -14,6 +14,8 @@
       ../../roles/go-ethereum.nix
       ../../roles/nimbus-eth2.nix
       ../../roles/prometheus.nix
+      ../../roles/grafana.nix
+      ../../roles/nginx.nix
     ];
   boot.loader.grub = {
     enable = true;
