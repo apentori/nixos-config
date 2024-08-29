@@ -1,8 +1,8 @@
 { pkgs, lib, config,  ... }:
 
 let  
-  listenPort = 9802; # WebDAV Source TLS/SSL
-  discoverPort = 9802; # WebDAV Source TLS/SSL
+  listenPort = 9000; # WebDAV Source TLS/SSL
+  discoverPort = 9000; # WebDAV Source TLS/SSL
   services = config.services;
 in {
   imports = [
