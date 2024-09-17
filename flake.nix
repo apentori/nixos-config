@@ -56,6 +56,13 @@
         ./hosts/hyperion/configuration.nix
         ];
       };
+      mnemosyme = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+        ./hosts/mnemosyme/configuration.nix
+        ];
+      };
    };
   };
 }
