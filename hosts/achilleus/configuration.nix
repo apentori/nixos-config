@@ -25,7 +25,7 @@
     ];
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
-
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   environment.systemPackages = with pkgs; [
     system76-firmware
     catppuccin-gtk
