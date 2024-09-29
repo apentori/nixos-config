@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    pciutils 
     hyprland xwayland polkit
     xdg-desktop-portal-hyprland
     waybar 

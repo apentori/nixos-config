@@ -9,7 +9,7 @@
     # monitoring
     btop psensor usbutils
     # Code
-    neovim jq fzf silver-searcher git
+    neovim jq fzf silver-searcher git nodejs
     gcc mpv scdoc busybox
     # Networking
     wget curl nmap nettools traceroute dnsutils wirelesstools blueman
@@ -18,7 +18,7 @@
     # security
     pass openssl 
     xdg-utils
-
+    vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
   ];
   

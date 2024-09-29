@@ -26,24 +26,31 @@
   };
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.kernelParams = [
+    "video=eDP-1,1920x1080@144,0"
+    "video=HDMI-A-1:3840x2160@60"
+    "video=DP-1,1920x1080@60"
+  ];
   environment.systemPackages = with pkgs; [
-    system76-firmware
+    system76-firmware 
     catppuccin-gtk
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
+    amdgpu_top
   ];
 
   networking = {
     hostName = "achilleus"; # Define your hostname.
     hostId = "8425e349";
     networkmanager.enable = true;
+    wireless.userControlled.enable = true;
   };
 
   catppuccin = {
     enable = true;
   };
 
-  environment.variables  = {
+  environment.variables = {
     GTK_THEME = "catppuccin-macchiato-teal-standard";
     XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
     XCURSOR_SIZE = "24";
@@ -79,19 +86,26 @@
       layout = "us";
       variant = "altgr-intl";
     };
-    videoDrivers = [ "amdgpu" ];
+#    videoDrivers = [ "amdgpu" "displaylink" "modesetting" ];
   };
 
   hardware = {
-      opengl.enable =  true;
+      opengl= {
+        enable = true;
+        driSupport= true;
+        driSupport32Bit = true;
+        extraPackages = with pkgs; [
+          amdvlk
+        ];
+      };
       bluetooth.enable = true;
       system76 = {
         enableAll = true;
         kernel-modules.enable = true;
       };
   };
- 
-  xdg.portal.enable =  true;
+
+  xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
     # Enable sound.
   sound.enable = true;

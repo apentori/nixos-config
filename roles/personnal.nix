@@ -15,15 +15,17 @@
 
   # Monitors and Docks
   displaylink
+  # Sensors scans
+  lm_sensors
 
 ];
 
   users.users.irotnep.packages = with pkgs; [
-    # Web 
+    # Web
     firefox brave
-    # Communication 
+    # Communication
     discord
-    # Note 
+    # Note
     obsidian
   ];
 
