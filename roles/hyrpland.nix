@@ -2,19 +2,19 @@
 
 {
   environment.systemPackages = with pkgs; [
-    pciutils 
+    pciutils
     hyprland xwayland polkit
     xdg-desktop-portal-hyprland
-    waybar 
+    waybar
     swaynotificationcenter # notification daemon
     alacritty # terminals
     rofi-wayland # app launcher
-    networkmanagerapplet #network 
+    networkmanagerapplet #network
     pipewire
     wireplumber # screen sharing
     greetd.tuigreet
     pavucontrol
-    wlogout swaybg  #Login etc..  
+    wlogout swaybg  #Login etc..
     wlroots # Dynamic Menu
     wl-clipboard # CopyPast Utilities
     brightnessctl # brightness control
@@ -54,7 +54,7 @@
   };
   # avoid swaylock telling wrong password
   security.pam.services.swaylock = {};
-   
+
   programs.hyprland = {
      enable = true;
      xwayland.enable = true;

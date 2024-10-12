@@ -32,7 +32,7 @@
     "video=DP-1,1920x1080@60"
   ];
   environment.systemPackages = with pkgs; [
-    system76-firmware 
+    system76-firmware
     catppuccin-gtk
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
@@ -44,6 +44,7 @@
     hostId = "8425e349";
     networkmanager.enable = true;
     wireless.userControlled.enable = true;
+    #networkmanager.wifi.powersave = true;
   };
 
   catppuccin = {

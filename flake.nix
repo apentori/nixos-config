@@ -6,11 +6,10 @@
     nixpkgs.url  = "github:nixos/nixpkgs/nixos-24.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
-    agenix.url = "github:ryantm/agenix";
-    # Thems 
+    agenix.url   = "github:ryantm/agenix";
+    # Thems
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
-
   };
 
   outputs = {

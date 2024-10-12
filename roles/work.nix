@@ -38,7 +38,7 @@ in {
     # DevOps
     ansible
     # Security
-    bitwarden bitwarden-cli 
+    bitwarden bitwarden-cli
     # Matrix client fallback communication
     element-web
     # Network
@@ -49,9 +49,9 @@ in {
     # Python dev
     myPython
     # Utils
-    jsonnet appimage-run 
+    jsonnet appimage-run
     # Yubikey
-    yubikey-agent yubikey-manager pinentry 
+    yubikey-agent yubikey-manager pinentry
     vagrant
     vault
     zeal
@@ -76,4 +76,4 @@ in {
     #pinentryFlavor = "gtk2";
   };
   virtualisation.docker.enable = true;
-} 
+}
