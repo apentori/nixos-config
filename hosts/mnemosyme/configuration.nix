@@ -3,7 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, ... }:
-let 
+let
   SSID = "Livebox6-0600";
   SSIDpassword = "somePassword";
   interface = "wlan0";
@@ -12,6 +12,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../roles/users.nix
     ];
   nixpkgs.system = "aarch64-linux";
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -47,15 +48,16 @@ in
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.irotnep = {
-     isNormalUser = true;
-     password= "aPassWord";
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-      	vim
-        tree
-     ];
-   };
+  # users.users.irotnep = {
+  #   isNormalUser = true;
+  #   password= "aPassWord";
+  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  #   packages = with pkgs; [
+  #    	vim
+  #      tree
+  #      htop
+  #   ];
+  # };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
