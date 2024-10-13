@@ -1,6 +1,6 @@
-{ pkgs, lib, config,  ... }:
+{ pkgs, lib, config, ... }:
 
-let  
+let
   listenPort = 9000; # WebDAV Source TLS/SSL
   discoverPort = 9000; # WebDAV Source TLS/SSL
   services = config.services;
@@ -8,12 +8,12 @@ in {
   imports = [
     ../services/nimbus-eth2.nix
   ];
-  config = let 
+  config = let
     cfg = config.nimbus;
   in {
-    # Secret 
+    # Secret
     age.secrets = {
-      jwt-secret =  {
+      jwt-secret = {
         file = ../secrets/services/geth/jwt-secret.age;
         path = "/nimbus/jwt-secret";
         owner = "nimbus";
@@ -21,7 +21,7 @@ in {
         mode = "600";
       };
     };
-    #  Firewall Permission
+    # Firewall Permission
     networking.firewall.allowedTCPPorts = [ listenPort ];
     networking.firewall.allowedUDPPorts = [ discoverPort ];
 
@@ -32,7 +32,7 @@ in {
       el = "http://localhost:8551";
       jwtSecret = "/nimbus/jwt-secret";
       inherit listenPort discoverPort;
-#      extraArgs = [];
+      # extraArgs = [];
     };
   };
 }

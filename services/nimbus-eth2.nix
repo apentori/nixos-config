@@ -88,6 +88,11 @@ in {
             default = "Info";
             description = "Level of log for Nimbus";
           };
+          format = mkOption {
+            type = types.str;
+            default = "json";
+            description = "Format of log for Nimbus";
+          };
         };
         dataDir= mkOption {
           type = types.str;
@@ -135,6 +140,7 @@ in {
             --network=${cfg.network} \
             --data-dir=${cfg.dataDir} \
             --log-level=${cfg.log.level} \
+            --log-format=${cfg.log.format} \
             --tcp-port=${toString cfg.listenPort} \
             --udp-port=${toString cfg.discoverPort} \
             --rest=${boolToString cfg.rest.enable} ${optionalString cfg.rest.enable ''--rest-address=${cfg.rest.address} --rest-port=${toString cfg.rest.port} ''} \
