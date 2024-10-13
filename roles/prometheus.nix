@@ -22,12 +22,12 @@ in {
       (genScrapeJob {name= "geth";      path = "debug/metrics"; port = 6060; })
       (genScrapeJob {name= "exporter";  path = "metrics";       port = 9090; })
     ];
-    exporters.node = {
-      enable = true;
-      port = 9000;
-      enabledCollectors = [ "systemd" ];
-      extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" "--collector.wifi" ];
-    };
+#    exporters.node = {
+#      enable = true;
+#      port = 9000;
+#      enabledCollectors = [ "systemd" ];
+#      extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" "--collector.wifi" ];
+#    };
 
   };
 }

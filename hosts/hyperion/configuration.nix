@@ -1,20 +1,20 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
       ../../roles/users.nix
       ../../roles/default.nix
       ../../roles/servers.nix
       ../../roles/go-ethereum.nix
       ../../roles/nimbus-eth2.nix
-      ../../roles/prometheus.nix
       ../../roles/grafana.nix
+      ../../roles/loki.nix
       ../../roles/nginx.nix
     ];
   boot.loader.grub = {
@@ -52,7 +52,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    settings =  {
+    settings = {
       PasswordAuthentication = true;
       AllowUsers = [ "irotnep" ];
       UseDns = true;
@@ -64,7 +64,7 @@
     enable = true;
   };
 
-  nix.settings =  {
+  nix.settings = {
     trusted-users = ["root" "irotnep" ];
     experimental-features = [ "nix-command" "flakes" ];
   };
