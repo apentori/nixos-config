@@ -4,10 +4,13 @@ let
 
   hyperion = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8v+syIBfmBB7PRskFq1RLG5nbH230Skz+sLNoNG+8E3C0zHoQnY/cShSa6G8GuS4TzRk4EPVf5rqloSmjvSwgN9aLHgmhrfiKb8MuGcmTHsOWB3ZdPBUA07ULsRVmd/DRo2Oxoy5h2Y/OVfU/cT1e6NqGAKb8+83TaYsVSgFldRBUlgoIfep87zWxo0/olCxGzmo3SqQpMTgzkZtPV3/jdniy0tUO83hbWuXsCF8nWvzlAAcTYM7EFMikqS70xm9nuxVJtUBUFb4BuzbX5tkANgf6GjelPdM6YkL9daskJ8vsOhtO2mPUHonqLmn80ocusCClRTgv9UVADgvQr8Opl9PKdhODikjEva0KO1T46Zejo920Iv90F6+0eVn3gC3HaGqBM5EKaZU+Px5RYLJluL3Uq/OCqnoiNcJzmA4i6bKoKo3C3YMdvhneo7h//eV0g0c0/I/jeL7rfkuOY4pTPFsV34z4VaeZYloT4WpAJc8F5xdCkPAn98YaY2D0G98sTdbqE59ydXHOhZhDQIvkb1AEZKCzlDOEbKmKXuTQzQP8wHZE3JgltdP+oN5KfU69mr3IQqE45ZskCpTohGew9+Q/UOSpxQaIhYO7TParcZw0j4nnWBrESqm3QfQc3hb4tXr91nOoli9L70R7EkxeTLAUdjJ3IBth4sm4jcWlKQ== root@hyperion";
 
-  systems = [ hyperion ];
+  mnemosyme = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEMnKNpABJ24znkiHZu3+9Ehipc4Cr6T5iA+hyzA36Mm";
+
+  systems = [ hyperion mnemosyme ];
 
   all = irotnep ++ systems;
 in
 {
-  "services/geth/jwt-secret.age" =  { publicKeys = [ irotnep hyperion ];};
+  "services/geth/jwt-secret.age" = { publicKeys = [ irotnep hyperion ]; };
+  "services/wifi/manoir.age" = { publicKeys = [ irotnep mnemosyme ]; };
 }

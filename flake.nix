@@ -59,6 +59,7 @@
         system = "aarch64-linux";
         specialArgs = {inherit inputs;};
         modules = [
+        agenix.nixosModules.default
         ./hosts/mnemosyme/configuration.nix
         ];
       };
