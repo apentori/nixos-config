@@ -19,7 +19,7 @@
     wl-clipboard # CopyPast Utilities
     brightnessctl # brightness control
     cliphist # Clipboard manager
-    pulsemixer # sound
+    pulsemixer pulseaudioFull# sound
     xdg-desktop-portal-wlr # Desktop portal
     gnome.nautilus # file manager
     slurp grim # screen shot
