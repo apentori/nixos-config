@@ -16,19 +16,19 @@
     # file system
     ncdu zfs zfstools
     # security
-    pass openssl 
+    pass openssl
     xdg-utils
     vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
   ];
-  
+
   fonts.packages = with pkgs; [
     nerdfonts
     meslo-lgs-nf
     fira-code
     fira-code-symbols
   ];
-  # Shell 
+  # Shell
   programs.zsh.enable =  true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -52,5 +52,8 @@
 
   # Uptime tracker
   services.uptimed.enable = true;
+  services.openssh = {
+    enable = true;
+  };
 
   }
