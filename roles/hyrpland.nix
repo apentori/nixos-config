@@ -41,6 +41,7 @@
     # media
     imv mpv
     yazi
+    (callPackage ../packages/zen-browser.nix {})
   ];
 
   services.greetd = {
