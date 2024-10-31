@@ -9,7 +9,7 @@ in{
     enable = true;
     configuration = {
       server = {
-        http_listen_port = 3031;
+        http_listen_port = 9080;
         grpc_listen_port = 0;
       };
       positions = {
@@ -34,4 +34,5 @@ in{
       }];
     };
   };
+
 }
