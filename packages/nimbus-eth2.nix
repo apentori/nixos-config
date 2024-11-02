@@ -12,8 +12,8 @@ let
   inherit (pkgs) stdenv fetchgit fetchurl lib which writeScriptBin;
 in stdenv.mkDerivation rec {
   pname = "nimbus";
-  version = "24.7.0";
-  commit = "99f657e5";
+  version = "24.10.0";
+  commit = "c4037d6";
   name = "${pname}-${version}-${commit}";
 
   src = fetchgit {

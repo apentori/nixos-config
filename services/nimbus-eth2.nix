@@ -56,6 +56,11 @@ in {
           default = "";
           description = "URL of Execution Layer";
         };
+        feeRecipient = mkOption {
+          type =  types.str;
+          default = "";
+          description = "Recipient fees";
+        };
         rest = {
           enable = lib.mkEnableOption "Nimbus Eth2 REST API";
           port = mkOption {
@@ -104,6 +109,11 @@ in {
           default="/nimbus/jwtSecret";
           description = "Path Of jwtSecret for geth API";
         };
+        trustedNode = mkOption {
+          type = types.str;
+          default="";
+          description = "Address of a trustedNode";
+        };
         extraArgs = mkOption {
           type = types.listOf types.str;
           default= [];
@@ -143,10 +153,13 @@ in {
             --log-format=${cfg.log.format} \
             --tcp-port=${toString cfg.listenPort} \
             --udp-port=${toString cfg.discoverPort} \
+            --rest \
             --rest=${boolToString cfg.rest.enable} ${optionalString cfg.rest.enable ''--rest-address=${cfg.rest.address} --rest-port=${toString cfg.rest.port} ''} \
             --metrics=${boolToString cfg.metrics.enable} ${optionalString cfg.metrics.enable ''--metrics-address=${cfg.metrics.address} --metrics-port=${toString cfg.metrics.port} ''} \
             ${if cfg.el != "" then "--el=${cfg.el}" else "--no-el"} \
-            --jwt-secret=${cfg.jwtSecret}  \
+            --jwt-secret=${cfg.jwtSecret} \
+            --suggested-fee-recipient=${cfg.feeRecipient} \
+            ${if cfg.el != "" then "--web3-url=${cfg.el}" else ""} \
             ${escapeShellArgs cfg.extraArgs}
             '';
         Restart = "on-failure";

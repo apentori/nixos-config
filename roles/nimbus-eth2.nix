@@ -31,6 +31,7 @@ in {
       rest.enable = true;
       el = "http://localhost:8551";
       jwtSecret = "/nimbus/jwt-secret";
+      feeRecipient = "0xaEf9C1bA601c3ec72AD2E82cCC3Bd9AB2A92F3FE";
       inherit listenPort discoverPort;
       # extraArgs = [];
     };
