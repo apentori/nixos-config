@@ -26,7 +26,7 @@ in {
     networking.firewall.allowedUDPPorts = [ discoverPort ];
 
     services.nimbus-eth2 = {
-      enable = true;
+      enable = false;
       metrics.enable = true;
       rest.enable = true;
       el = "http://localhost:8551";

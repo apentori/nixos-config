@@ -32,7 +32,7 @@ in {
     };
 
     services.geth.holesky = {
-      enable = true;
+      enable = false;
       port=gethPort;
  #  datadir = "/data/geth";
 #      authrpc ={
