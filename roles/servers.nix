@@ -3,6 +3,7 @@
   imports = [
     ./prometheus.nix
     ./promtail.nix
+    ./paperless.nix
     ];
 
   programs.zsh.ohMyZsh = {

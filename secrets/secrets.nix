@@ -16,4 +16,5 @@ in
   "services/geth/jwt-secret.age" = { publicKeys = [ irotnep hyperion ]; };
   "services/wifi/manoir.age" = { publicKeys = [ irotnep mnemosyme ]; };
   "services/nextcloud/admin.age" = { publicKeys = [ irotnep hyperion mnemosyme]; };
+  "services/paperless/admin.age" = { publicKeys = [ irotnep hyperion mnemosyme]; };
 }
