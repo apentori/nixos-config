@@ -17,6 +17,8 @@
     ncdu zfs zfstools
     # security
     pass openssl
+    # backup
+    rclone
     xdg-utils
     vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
@@ -29,7 +31,7 @@
     fira-code-symbols
   ];
   # Shell
-  programs.zsh.enable =  true;
+  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
   programs.fzf = {
