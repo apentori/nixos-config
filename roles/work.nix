@@ -43,6 +43,7 @@ in {
     bitwarden bitwarden-cli
     # Matrix client fallback communication
     element-web
+    slack
     # Network
     netcat websocat tcpdump whois
     # Cloud
