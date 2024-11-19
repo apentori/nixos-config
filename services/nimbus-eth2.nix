@@ -31,8 +31,8 @@ in {
             description = "Group name for Nimbus Eth2 service.";
           };
         };
-        network = mkOption  {
-          type  = types.str;
+        network = mkOption {
+          type = types.str;
           default = "holesky";
           description = "Name of Ethereum network";
         };
@@ -52,12 +52,12 @@ in {
           description = "Port for UDP P2P connection to the server";
         };
         el = mkOption {
-          type =  types.str;
+          type = types.str;
           default = "";
           description = "URL of Execution Layer";
         };
         feeRecipient = mkOption {
-          type =  types.str;
+          type = types.str;
           default = "";
           description = "Recipient fees";
         };
@@ -66,7 +66,7 @@ in {
           port = mkOption {
             type = types.int;
             default= 5052;
-            description  = "REST port for Nimbus";
+            description = "REST port for Nimbus";
           };
           address = mkOption {
             type = types.str;
