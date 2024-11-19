@@ -13,10 +13,10 @@ in pkgs.appimageTools.wrapType2 {
 
     zen-browser-desktop = pkgs.writeTextDir "share/applications/zen.desktop" ''
               [Desktop Entry]
-              Version=15
+              Version=1.0.1
               Type=Application
               Name=Zen
               Exec=zen
-              Icon=~/tools/icons/zen-browser.svg
+              Icon=~/tools/icons/zen-browser.png
           '';
 }
