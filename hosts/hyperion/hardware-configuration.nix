@@ -28,30 +28,36 @@
       fsType = "zfs";
     };
 
-  fileSystems."/nimbus" =
-    { device = "zpool/nimbus";
-      fsType = "zfs";
-      options = ["uid=5000" "gid=5000"];
-    };
-
-  fileSystems."/geth" =
-    { device = "zpool/geth";
+  fileSystems."/data" =
+    { device = "zpool/data";
       fsType = "zfs";
     };
 
   fileSystems."/boot1" =
-    { device = "/dev/disk/by-uuid/2493-5B4B";
+    { device = "/dev/disk/by-uuid/599B-943A";
       fsType = "vfat";
     };
 
   fileSystems."/boot2" =
-    { device = "/dev/disk/by-uuid/2504-A0D5";
+    { device = "/dev/disk/by-uuid/59A4-41E3";
+      fsType = "vfat";
+    };
+
+  fileSystems."/boot3" =
+    { device = "/dev/disk/by-uuid/59AB-25DF";
+      fsType = "vfat";
+    };
+
+  fileSystems."/boot4" =
+    { device = "/dev/disk/by-uuid/59B6-E963";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/26c1583c-a5b4-4130-951c-bea1784aeef8"; }
-      { device = "/dev/disk/by-uuid/d6169dbd-def4-46b9-8219-8c756d93fc3d"; }
+    [ { device = "/dev/disk/by-uuid/437820a4-ba85-437e-8932-e8a5055e90c2"; }
+      { device = "/dev/disk/by-uuid/21abbbee-fb6c-46cc-ae33-7bc2a118b192"; }
+      { device = "/dev/disk/by-uuid/9a19f856-b733-4c38-83d4-6556e4183f83"; }
+      { device = "/dev/disk/by-uuid/3e0baae8-9948-48e3-b1d1-5bd8420025f1"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

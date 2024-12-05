@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../roles/users.nix
       ../../roles/default.nix
+      ../../roles/docker.nix
       ../../roles/servers.nix
       ../../roles/go-ethereum.nix
       ../../roles/nimbus-eth2.nix
@@ -27,6 +28,8 @@
     mirroredBoots = [
       { devices = [ "/dev/disk/by-id/ata-HGST_HUS726T4TALA6L1_V6H00B9S"]; path = "/boot1"; }
       { devices = [ "/dev/disk/by-id/ata-HGST_HUS726T4TALA6L1_V1JUHSKH"]; path = "/boot2"; }
+      { devices = [ "/dev/disk/by-id/ata-HGST_HUS726T4TALA6L1_V1HML8LH"]; path = "/boot3"; }
+      { devices = [ "/dev/disk/by-id/ata-HGST_HUS726T4TALA6L1_V6GMXTYS"]; path = "/boot4"; }
     ];
   };
   i18n = {
