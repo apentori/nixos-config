@@ -34,30 +34,30 @@
     };
 
   fileSystems."/boot1" =
-    { device = "/dev/disk/by-uuid/599B-943A";
+    { device = "/dev/disk/by-uuid/5A13-7838";
       fsType = "vfat";
     };
 
   fileSystems."/boot2" =
-    { device = "/dev/disk/by-uuid/59A4-41E3";
+    { device = "/dev/disk/by-uuid/5A1C-54B6";
       fsType = "vfat";
     };
 
   fileSystems."/boot3" =
-    { device = "/dev/disk/by-uuid/59AB-25DF";
+    { device = "/dev/disk/by-uuid/5A25-97A5";
       fsType = "vfat";
     };
 
   fileSystems."/boot4" =
-    { device = "/dev/disk/by-uuid/59B6-E963";
+    { device = "/dev/disk/by-uuid/5A2E-4173";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/437820a4-ba85-437e-8932-e8a5055e90c2"; }
-      { device = "/dev/disk/by-uuid/21abbbee-fb6c-46cc-ae33-7bc2a118b192"; }
-      { device = "/dev/disk/by-uuid/9a19f856-b733-4c38-83d4-6556e4183f83"; }
-      { device = "/dev/disk/by-uuid/3e0baae8-9948-48e3-b1d1-5bd8420025f1"; }
+    [ { device = "/dev/disk/by-uuid/912b71cc-5202-41fa-bfb9-3698e29599dc"; }
+      { device = "/dev/disk/by-uuid/d7c98915-691c-4a14-9324-2e850379bca1"; }
+      { device = "/dev/disk/by-uuid/08fc1a1c-514f-4cf2-890a-86d253091b3c"; }
+      { device = "/dev/disk/by-uuid/87eca568-5743-41b5-9da7-04a5457567ad"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

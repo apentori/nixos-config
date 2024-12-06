@@ -215,7 +215,7 @@ nixos-install --root /mnt
 
 Unmount the volumes and reboot to the new installed host
 ```bash
-umount /mnt/boot1 /mnt/boot2 /mnt/boot3 /mnt/boot4 /mnt/nix /mnt/home /mnt/
+umount /mnt/boot1 /mnt/boot2 /mnt/boot3 /mnt/boot4 /mnt/nix /mnt/home /mnt/data /mnt/
 reboot
 ```
 
