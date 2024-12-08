@@ -12,6 +12,7 @@
     package = pkgs.nextcloud28;
     hostName = "nextcloud.irotnep.net";
     config.adminpassFile = "/etc/nextcloud-admin-pass";
+    datadir = "/data/nextcloud";
   };
   services.nginx.virtualHosts."nextcloud.irotnep.net" = {
     forceSSL = true;
