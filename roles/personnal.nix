@@ -14,9 +14,11 @@
   keepassxc
 
   # Monitors and Docks
-  displaylink
+  #displaylink
   # Sensors scans
   lm_sensors
+  # Connect phones
+  libsForQt5.kdeconnect-kde
 
 ];
 

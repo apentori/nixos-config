@@ -47,6 +47,13 @@
         hardware.nixosModules.system76
         ];
       };
+      theseus = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+        catppuccin.nixosModules.catppuccin
+        ./hosts/theseus/configuration.nix
+        ];
+      };
       hyperion = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
