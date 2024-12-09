@@ -7,9 +7,16 @@
     group = "paperless";
   };
 
+  systemd.tmpfiles.rules = [
+    "d /data/paperless 0750 paperless paperless"
+  ];
+
+  users.groups.paperless.members = [ "irotnep" ];
+
   services.paperless = {
     enable = true;
     passwordFile = "/etc/paperless-admin-pass";
+    dataDir = "/data/paperless";
   };
 
   services.nginx.virtualHosts."paperless.irotnep.net" = {
