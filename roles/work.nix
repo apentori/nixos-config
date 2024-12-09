@@ -18,6 +18,8 @@ let
     sh backoff psutil
     ansible-core
     hvac
+    # dbt
+    #dbt-postgres rpds-py
   ];
   myPython = pkgs.python311.withPackages myPythonPkgs;
 
