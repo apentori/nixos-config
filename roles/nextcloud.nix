@@ -7,10 +7,17 @@
     group = "nextcloud";
   };
 
+  systemd.tmpfiles.rules = [
+    "d /data/nextcloud 0750 nextcloud nextcloud"
+  ];
+
+  users.groups.nextcloud.members = [ "irotnep" ];
+
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud28;
+    package = pkgs.nextcloud29;
     hostName = "nextcloud.irotnep.net";
+    https = true;
     config.adminpassFile = "/etc/nextcloud-admin-pass";
     datadir = "/data/nextcloud";
   };
