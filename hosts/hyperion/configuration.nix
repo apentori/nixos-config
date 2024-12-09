@@ -12,8 +12,6 @@
       ../../roles/default.nix
       ../../roles/docker.nix
       ../../roles/servers.nix
-      ../../roles/go-ethereum.nix
-      ../../roles/nimbus-eth2.nix
       ../../roles/grafana.nix
       ../../roles/loki.nix
       ../../roles/nextcloud.nix
@@ -48,10 +46,6 @@
     defaultGateway = "149.202.75.254";
     nameservers = ["8.8.8.8"];
   };
-
-  systemd.tmpfiles.rules = [
-    "d /data/geth/data 760 irotnep ethereum"
-  ];
 
   # Enable the OpenSSH daemon.
   services.openssh = {
