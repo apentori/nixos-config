@@ -17,6 +17,9 @@
     ncdu zfs zfstools
     # security
     pass openssl
+    # GPG
+    gnupg gnupg1
+
     # backup
     rclone
     xdg-utils
