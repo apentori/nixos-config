@@ -2,7 +2,7 @@
   pkgs, ...
 }:
 let
-  version = "1.0.1-a.14";
+  version = "1.0.2-b.1";
 in pkgs.appimageTools.wrapType2 {
     inherit version;
     name = "zen"; # NOTE: This will be the name of the executable in $PATH.
