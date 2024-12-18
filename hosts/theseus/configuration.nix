@@ -12,7 +12,7 @@
       ../../roles/default.nix
       ../../roles/work.nix
       ../../roles/personnal.nix
-
+      ../../roles/kde.nix
     ];
 
   # Bootloader.

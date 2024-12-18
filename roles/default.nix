@@ -19,12 +19,12 @@
     pass openssl
     # GPG
     gnupg gnupg1
-
     # backup
     rclone
     xdg-utils
     vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
+    firefox obsidian
   ];
 
   fonts.packages = with pkgs; [

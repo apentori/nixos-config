@@ -12,7 +12,7 @@
       ../../roles/users.nix
       ../../roles/default.nix
       ../../roles/work.nix
-      ../../roles/personnal.nix
+      ../../roles/laptop.nix
       ../../roles/backup.nix
     ];
 

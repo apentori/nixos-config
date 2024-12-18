@@ -9,17 +9,9 @@
   wineWowPackages.waylandFull
   # Finance tools
   denaro
+  ledger-live-desktop
   qemu
-  ungoogled-chromium
   keepassxc
-
-  # Monitors and Docks
-  #displaylink
-  # Sensors scans
-  lm_sensors
-  # Connect phones
-  libsForQt5.kdeconnect-kde
-
 ];
 
   users.users.irotnep.packages = with pkgs; [
