@@ -111,8 +111,8 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
     # Enable sound.
   sound.enable = true;
-  security.rtkit.enable = true;
   services.blueman.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

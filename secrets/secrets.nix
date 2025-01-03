@@ -17,4 +17,5 @@ in
   "services/wifi/manoir.age" = { publicKeys = [ irotnep achilleus mnemosyme ]; };
   "services/nextcloud/admin.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
   "services/paperless/admin.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
+  "services/ghostfolio/env.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
 }

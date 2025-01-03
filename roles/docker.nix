@@ -10,6 +10,8 @@
       data-root = "/docker";
     };
   };
+  virtualisation.oci-containers.backend = "docker";
+
   users.extraGroups.docker.members = [ "irotnep" ];
 
 }
