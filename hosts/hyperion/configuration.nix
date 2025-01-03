@@ -15,6 +15,7 @@
       ../../roles/grafana.nix
       ../../roles/loki.nix
       ../../roles/nextcloud.nix
+      ../../roles/ghostfolio.nix
       ../../roles/nginx.nix
     ];
   boot.loader.grub = {

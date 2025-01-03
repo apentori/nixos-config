@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, lib, config, ...}:
 {
   # Application
   virtualisation.oci-containers.containers."ghostfolio-app" = {
@@ -6,16 +6,16 @@
     hostname = "ghostfolio";
     ports = [ "3333:3333"];
     environment = {
-      "ACCESS_TOKEN_SALT" = "acsaceccaceveve";
-      "COMPOSE_PROJECT_NAME" = "ghostfolio-development";
-      "DATABASE_URL" = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
-      "JWT_SECRET_KEY" = "acasclacsj236615ewce";
-      "POSTGRES_DB" = "ghostfolio-db";
-      "POSTGRES_PASSWORD" = "Th1s1sAPgslGhostfolioPwd";
-      "POSTGRES_USER" = "postgres";
-      "REDIS_HOST" = "redis";
-      "REDIS_PASSWORD" = "12345pass67890word";
-      "REDIS_PORT" = "6379";
+      ACCESS_TOKEN_SALT = "acsaceccaceveve";
+      COMPOSE_PROJECT_NAME = "ghostfolio-development";
+      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
+      JWT_SECRET_KEY = "acasclacsj236615ewce";
+      POSTGRES_DB = "ghostfolio-db";
+      POSTGRES_PASSWORD = "Th1s1sAPgslGhostfolioPwd";
+      POSTGRES_USER = "postgres";
+      REDIS_HOST = "redis";
+      REDIS_PASSWORD = "12345pass67890word";
+      REDIS_PORT = "6379";
     };
     dependsOn = [
       "ghostfolio-postgres"
@@ -37,35 +37,27 @@
     serviceConfig = {
       Restart = lib.mkOverride 90 "no";
     };
-    after = [
-      "docker-network-ghostfolio_default.service"
-    ];
-    requires = [
-      "docker-network-ghostfolio_default.service"
-    ];
-    partOf = [
-      "docker-compose-ghostfolio-root.target"
-    ];
-    wantedBy = [
-      "docker-compose-ghostfolio-root.target"
-    ];
+    after = [ "docker-network-ghostfolio_default.service" ];
+    requires = [ "docker-network-ghostfolio_default.service" ];
+    partOf = [ "docker-compose-ghostfolio-root.target" ];
+    wantedBy = [ "docker-compose-ghostfolio-root.target" ];
   };
   virtualisation.oci-containers.containers."ghostfolio-postgres" = {
     image = "postgres:15";
     environment = {
-      "ACCESS_TOKEN_SALT" = "acsaceccaceveve";
-      "COMPOSE_PROJECT_NAME" = "ghostfolio-development";
-      "DATABASE_URL" = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
-      "JWT_SECRET_KEY" = "acasclacsj236615ewce";
-      "POSTGRES_DB" = "ghostfolio-db";
-      "POSTGRES_PASSWORD" = "Th1s1sAPgslGhostfolioPwd";
-      "POSTGRES_USER" = "postgres";
-      "REDIS_HOST" = "redis";
-      "REDIS_PASSWORD" = "12345pass67890word";
-      "REDIS_PORT" = "6379";
+      ACCESS_TOKEN_SALT = "acsaceccaceveve";
+      COMPOSE_PROJECT_NAME = "ghostfolio-development";
+      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
+      JWT_SECRET_KEY = "acasclacsj236615ewce";
+      POSTGRES_DB = "ghostfolio-db";
+      POSTGRES_PASSWORD = "Th1s1sAPgslGhostfolioPwd";
+      POSTGRES_USER = "postgres";
+      REDIS_HOST = "redis";
+      REDIS_PASSWORD = "12345pass67890word";
+      REDIS_PORT = "6379";
     };
     volumes = [
-      "/home/irotnep/source/ghostfolio/database:/var/lib/postgresql/data:rw"
+      "/data/ghostfolio:/var/lib/postgresql/data:rw"
     ];
     log-driver = "journald";
     extraOptions = [
@@ -81,34 +73,26 @@
     serviceConfig = {
       Restart = lib.mkOverride 90 "no";
     };
-    after = [
-      "docker-network-ghostfolio_default.service"
-    ];
-    requires = [
-      "docker-network-ghostfolio_default.service"
-    ];
-    partOf = [
-      "docker-compose-ghostfolio-root.target"
-    ];
-    wantedBy = [
-      "docker-compose-ghostfolio-root.target"
-    ];
+    after = [ "docker-network-ghostfolio_default.service" ];
+    requires = [ "docker-network-ghostfolio_default.service" ];
+    partOf = [ "docker-compose-ghostfolio-root.target" ];
+    wantedBy = [ "docker-compose-ghostfolio-root.target" ];
   };
   virtualisation.oci-containers.containers."ghostfolio-redis" = {
     image = "redis:alpine";
     environment = {
-      "ACCESS_TOKEN_SALT" = "acsaceccaceveve";
-      "COMPOSE_PROJECT_NAME" = "ghostfolio-development";
-      "DATABASE_URL" = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
-      "JWT_SECRET_KEY" = "acasclacsj236615ewce";
-      "POSTGRES_DB" = "ghostfolio-db";
-      "POSTGRES_PASSWORD" = "Th1s1sAPgslGhostfolioPwd";
-      "POSTGRES_USER" = "postgres";
-      "REDIS_HOST" = "redis";
-      "REDIS_PASSWORD" = "12345pass67890word";
-      "REDIS_PORT" = "6379";
+      ACCESS_TOKEN_SALT = "acsaceccaceveve";
+      COMPOSE_PROJECT_NAME = "ghostfolio-development";
+      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
+      JWT_SECRET_KEY = "acasclacsj236615ewce";
+      POSTGRES_DB = "ghostfolio-db";
+      POSTGRES_PASSWORD = "Th1s1sAPgslGhostfolioPwd";
+      POSTGRES_USER = "postgres";
+      REDIS_HOST = "redis";
+      REDIS_PASSWORD = "12345pass67890word";
+      REDIS_PORT = "6379";
     };
-    cmd = [ "redis-server" "--requirepass" "" ];
+    cmd = [ "redis-server" ];
     log-driver = "journald";
     extraOptions = [
       "--health-cmd=redis-cli --pass ping | grep PONG"
@@ -123,18 +107,10 @@
     serviceConfig = {
       Restart = lib.mkOverride 90 "no";
     };
-    after = [
-      "docker-network-ghostfolio_default.service"
-    ];
-    requires = [
-      "docker-network-ghostfolio_default.service"
-    ];
-    partOf = [
-      "docker-compose-ghostfolio-root.target"
-    ];
-    wantedBy = [
-      "docker-compose-ghostfolio-root.target"
-    ];
+    after = [ "docker-network-ghostfolio_default.service" ];
+    requires = [ "docker-network-ghostfolio_default.service" ];
+    partOf = [ "docker-compose-ghostfolio-root.target" ];
+    wantedBy = [ "docker-compose-ghostfolio-root.target" ];
   };
 
   # Networks

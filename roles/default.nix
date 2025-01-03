@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-  # Utility
+    # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
     zip unzip
     thefuck direnv oh-my-zsh
