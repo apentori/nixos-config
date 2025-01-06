@@ -17,6 +17,7 @@
       ../../roles/nextcloud.nix
       ../../roles/ghostfolio.nix
       ../../roles/nginx.nix
+      ../../roles/media.nix
     ];
   boot.loader.grub = {
     enable = true;
@@ -67,6 +68,10 @@
     trusted-users = ["root" "irotnep" ];
     experimental-features = [ "nix-command" "flakes" ];
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "python3.11-youtube-dl-2021.12.17"
+  ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
