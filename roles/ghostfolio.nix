@@ -1,5 +1,7 @@
 { pkgs, lib, config, ...}:
-{
+let
+  reddis_pass = "12345pass67890word";
+in {
   # Application
   virtualisation.oci-containers.containers."ghostfolio-app" = {
     image = "ghostfolio/ghostfolio:latest";
@@ -8,12 +10,12 @@
     environment = {
       ACCESS_TOKEN_SALT = "acsaceccaceveve";
       COMPOSE_PROJECT_NAME = "ghostfolio-development";
-      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
+      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@ghostfolio-postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
       JWT_SECRET_KEY = "acasclacsj236615ewce";
       POSTGRES_DB = "ghostfolio-db";
       POSTGRES_PASSWORD = "Th1s1sAPgslGhostfolioPwd";
       POSTGRES_USER = "postgres";
-      REDIS_HOST = "redis";
+      REDIS_HOST = "ghostfolio-redis";
       REDIS_PASSWORD = "12345pass67890word";
       REDIS_PORT = "6379";
     };
@@ -45,17 +47,11 @@
   virtualisation.oci-containers.containers."ghostfolio-postgres" = {
     image = "postgres:15";
     environment = {
-      ACCESS_TOKEN_SALT = "acsaceccaceveve";
-      COMPOSE_PROJECT_NAME = "ghostfolio-development";
-      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
-      JWT_SECRET_KEY = "acasclacsj236615ewce";
       POSTGRES_DB = "ghostfolio-db";
       POSTGRES_PASSWORD = "Th1s1sAPgslGhostfolioPwd";
       POSTGRES_USER = "postgres";
-      REDIS_HOST = "redis";
-      REDIS_PASSWORD = "12345pass67890word";
-      REDIS_PORT = "6379";
     };
+    ports = ["5432:5432"];
     volumes = [
       "/data/ghostfolio:/var/lib/postgresql/data:rw"
     ];
@@ -81,18 +77,12 @@
   virtualisation.oci-containers.containers."ghostfolio-redis" = {
     image = "redis:alpine";
     environment = {
-      ACCESS_TOKEN_SALT = "acsaceccaceveve";
-      COMPOSE_PROJECT_NAME = "ghostfolio-development";
-      DATABASE_URL = "postgresql://postgres:Th1s1sAPgslGhostfolioPwd@postgres:5432/ghostfolio-db?connect_timeout=300&sslmode=prefer";
-      JWT_SECRET_KEY = "acasclacsj236615ewce";
-      POSTGRES_DB = "ghostfolio-db";
-      POSTGRES_PASSWORD = "Th1s1sAPgslGhostfolioPwd";
-      POSTGRES_USER = "postgres";
-      REDIS_HOST = "redis";
+      REDIS_HOST = "ghostfolio-redist";
       REDIS_PASSWORD = "12345pass67890word";
       REDIS_PORT = "6379";
     };
-    cmd = [ "redis-server" ];
+    ports = ["6379:637"];
+    cmd = [ "redis-server --requirepass " reddis_pass ];
     log-driver = "journald";
     extraOptions = [
       "--health-cmd=redis-cli --pass ping | grep PONG"
