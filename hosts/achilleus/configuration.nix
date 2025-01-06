@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, system, inputs, ... }:
 
 {
   imports =
@@ -38,6 +38,7 @@
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     amdgpu_top
+    inputs.zen-browser.packages."${system}".generic
   ];
 
   networking = {

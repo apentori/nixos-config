@@ -24,7 +24,7 @@
     xdg-utils
     vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
-    firefox obsidian
+    firefox 
   ];
 
   fonts.packages = with pkgs; [

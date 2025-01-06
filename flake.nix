@@ -10,6 +10,8 @@
     # Thems
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
+    # Tools
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = {
@@ -19,6 +21,7 @@
     hardware,
     agenix,
     catppuccin,
+    zen-browser,
     ...
   }@inputs:
     let
@@ -40,7 +43,7 @@
         modules = [./hosts/pandora/configuration.nix];
       };
       achilleus = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs; system = "x86_64-linux";};
         modules = [
         catppuccin.nixosModules.catppuccin
         ./hosts/achilleus/configuration.nix
