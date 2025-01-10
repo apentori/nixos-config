@@ -86,8 +86,8 @@
   services.xserver={
     enable = true;
     xkb = {
-      layout = "us";
-      variant = "altgr-intl";
+    layout = "us";
+    variant = "altgr-intl";
     };
 #    videoDrivers = [ "amdgpu" "displaylink" "modesetting" ];
   };
