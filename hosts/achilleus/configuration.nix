@@ -13,7 +13,6 @@
       ../../roles/default.nix
       ../../roles/work.nix
       ../../roles/laptop.nix
-      ../../roles/backup.nix
     ];
 
    boot.loader.grub = {
