@@ -44,8 +44,7 @@ in {
     # Security
     bitwarden bitwarden-cli
     # Matrix client fallback communication
-    element-web
-    slack
+    discord element-web slack
     # Network
     netcat websocat tcpdump whois
     # Cloud
@@ -60,6 +59,7 @@ in {
     vagrant
     vault
     zeal
+    obsidian joplin
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
