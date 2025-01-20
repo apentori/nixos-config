@@ -92,14 +92,6 @@
   };
 
   hardware = {
-      opengl= {
-        enable = true;
-        driSupport= true;
-        driSupport32Bit = true;
-        extraPackages = with pkgs; [
-          amdvlk
-        ];
-      };
       bluetooth.enable = true;
       system76 = {
         enableAll = true;
@@ -110,7 +102,6 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
     # Enable sound.
-  sound.enable = true;
   services.blueman.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -123,8 +114,8 @@
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-      "electron-25.9.0"
-      "vault-1.14.10"
+      "electron-31.7.7"
+      "vault-1.18.10"
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?

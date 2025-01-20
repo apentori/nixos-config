@@ -7,7 +7,7 @@
     zip unzip
     thefuck direnv oh-my-zsh
     # monitoring
-    btop psensor usbutils
+    btop monitorets usbutils
     # Code
     neovim jq fzf silver-searcher git nodejs
     gcc mpv scdoc busybox
