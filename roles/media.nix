@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
 
+  users.users.irotnep.extraGroups = [ "jellyfin" ];
 
   environment.systemPackages = [
     pkgs.jellyfin
@@ -13,6 +14,7 @@
     "d /data/jellyfin/media/musics 0750 jellyfin jellyfin"
     "d /data/jellyfin/media/series 0750 jellyfin jellyfin"
     "d /data/jellyfin/media/movies 0750 jellyfin jellyfin"
+    "d /data/jellyfin/media/books 0750 jellyfin jellyfin"
   ];
 
   services.jellyfin = {
