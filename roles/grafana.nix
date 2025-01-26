@@ -1,12 +1,24 @@
 { config, ...}:
 {
+  age.secrets."grafana-admin" = {
+    file = ../secrets/services/grafana/admin-pass.age;
+    path = "/etc/grafana/admin-pass";
+    owner = "grafana";
+    group = "grafana";
+  };
+
+  users.groups.grafana.members = [ "irotnep" ];
+
   services.grafana = {
     enable = true;
     settings = {
-      server  = {
+      server = {
         http_addr = "127.0.0.1";
         http_port = 3000;
         domain = "grafana.irotnep.net";
+      };
+      security = {
+        admin_password = "$__file{/etc/grafana/admin-pass}";
       };
     };
   };
