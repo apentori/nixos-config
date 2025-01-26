@@ -4,6 +4,7 @@
     ./prometheus.nix
     ./promtail.nix
     ./paperless.nix
+    ./tandoor.nix
     ];
 
   programs.zsh.ohMyZsh = {

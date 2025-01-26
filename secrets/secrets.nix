@@ -18,4 +18,5 @@ in
   "services/nextcloud/admin.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
   "services/paperless/admin.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
   "services/ghostfolio/env.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
+  "services/tandoor/secret-key.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
 }
