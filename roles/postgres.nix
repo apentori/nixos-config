@@ -2,12 +2,12 @@
 {
     services.postgresql = {
       enable = true;
-      dataDir = "/data/postgresql"
+      dataDir = "/data/postgresql";
+      ensureDatabases = [
+        "local"
+      ];
       ensureUsers = [
         { name = "irotnep"; ensureDBOwnership = true; }
-      ];
-      ensureDatabases = [
-        "ghostfolio"
       ];
   };
 }
