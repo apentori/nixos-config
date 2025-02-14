@@ -12,6 +12,7 @@
   ledger-live-desktop ledger-udev-rules
   qemu
   keepassxc
+  joplin-desktop
 ];
 services.udev.packages = with pkgs; [ ledger-udev-rules ];
   users.users.irotnep.packages = with pkgs; [

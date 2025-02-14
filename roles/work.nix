@@ -55,13 +55,13 @@ in {
     # Databases
     postgresql_14_jit
     # Utils
-    jsonnet appimage-run
+    jsonnet appimage-run dbeaver-bin
     # Yubikey
     yubikey-agent yubikey-manager pinentry
     vagrant
     vault
     zeal
-    obsidian joplin
+    obsidian joplin-desktop
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
