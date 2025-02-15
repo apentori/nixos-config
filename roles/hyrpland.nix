@@ -21,7 +21,7 @@
     cliphist # Clipboard manager
     pulsemixer pulseaudioFull# sound
     xdg-desktop-portal-wlr # Desktop portal
-    gnome.nautilus # file manager
+    nautilus # file manager
     slurp grim # screen shot
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
@@ -41,7 +41,6 @@
     # media
     imv mpv
     yazi
-    #(callPackage ../packages/zen-browser.nix {})
   ];
 
   services.greetd = {

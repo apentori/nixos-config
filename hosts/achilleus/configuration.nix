@@ -37,7 +37,7 @@
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     amdgpu_top
-    inputs.zen-browser.packages."${system}".generic
+    inputs.zen-browser.packages."${system}".default
     inputs.ags.packages.aarch64-linux.agsFull
   ];
 
