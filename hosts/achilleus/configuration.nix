@@ -38,6 +38,7 @@
     catppuccin-cursors.macchiatoTeal
     amdgpu_top
     inputs.zen-browser.packages."${system}".generic
+    inputs.ags.packages.aarch64-linux.agsFull
   ];
 
   networking = {

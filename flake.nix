@@ -12,6 +12,7 @@
     catppuccin.url = "github:catppuccin/nix";
     # Tools
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+    ags.url = "github:aylur/ags";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     agenix,
     catppuccin,
     zen-browser,
+    ags,
     ...
   }@inputs:
     let
