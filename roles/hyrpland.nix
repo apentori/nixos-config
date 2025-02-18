@@ -5,7 +5,6 @@
     pciutils
     hyprland xwayland polkit
     xdg-desktop-portal-hyprland
-    waybar
     swaynotificationcenter # notification daemon
     alacritty # terminals
     rofi-wayland # app launcher
@@ -23,19 +22,10 @@
     xdg-desktop-portal-wlr # Desktop portal
     nautilus # file manager
     slurp grim # screen shot
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      }))
-      meson
-      gvfs
-      playerctl
+    playerctl
 
-      pyprland
-    hyprpicker
-    hyprcursor
     hyprlock
     hypridle
-    hyprpaper
     # PDF
     zathura
     # media
@@ -62,9 +52,6 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
-  };
-  programs.waybar = {
-    enable = true;
   };
 
   services.hypridle.enable = true;
