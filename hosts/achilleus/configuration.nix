@@ -39,6 +39,7 @@
     amdgpu_top
     inputs.zen-browser.packages."${system}".default
     inputs.ags.packages.aarch64-linux.agsFull
+    inputs.hypr-panel.packages."${system}".default
   ];
 
   networking = {
@@ -114,6 +115,7 @@
     wireplumber.enable = true;
   };
 
+  services.upower.enable = true;
   nixpkgs.config.permittedInsecurePackages = [
       "electron-31.7.7"
       "vault-1.18.10"

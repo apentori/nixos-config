@@ -13,6 +13,7 @@
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     ags.url = "github:aylur/ags";
+    hypr-panel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -24,6 +25,7 @@
     catppuccin,
     zen-browser,
     ags,
+    hypr-panel,
     ...
   }@inputs:
     let
@@ -50,6 +52,7 @@
         catppuccin.nixosModules.catppuccin
         ./hosts/achilleus/configuration.nix
         hardware.nixosModules.system76
+        {nixpkgs.overlays = [inputs.hypr-panel.overlay];}
         ];
       };
       theseus = nixpkgs.lib.nixosSystem {
