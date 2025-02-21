@@ -43,8 +43,8 @@ in {
     ansible
     # Security
     bitwarden bitwarden-cli
-    # Matrix client fallback communication
-    discord element-web slack
+    # Communication tools
+    discord element-web slack telegram-desktop
     # Network
     netcat websocat tcpdump whois
     # Cloud
