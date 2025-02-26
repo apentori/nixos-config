@@ -40,9 +40,9 @@ in {
 
   users.users.irotnep.packages = with pkgs; [
     # DevOps
-    ansible
+    ansible vagrant
     # Security
-    bitwarden bitwarden-cli
+    bitwarden bitwarden-cli vault
     # Communication tools
     discord element-web slack telegram-desktop
     # Network
@@ -55,13 +55,15 @@ in {
     # Databases
     postgresql_14_jit
     # Utils
-    jsonnet appimage-run dbeaver-bin
+    jsonnet appimage-run
     # Yubikey
     yubikey-agent yubikey-manager pinentry
-    vagrant
-    vault
+    # Docs
     zeal
+    # Notes
     obsidian joplin-desktop
+    # VPN
+    tailscale
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
