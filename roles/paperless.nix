@@ -17,6 +17,11 @@
     enable = true;
     passwordFile = "/etc/paperless-admin-pass";
     dataDir = "/data/paperless";
+    settings = {
+      PAPERLESS_OCR_USER_ARGS= {
+        invalidate_digital_signatures= true;
+      };
+    };
   };
 
   services.nginx.virtualHosts."paperless.irotnep.net" = {

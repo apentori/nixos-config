@@ -129,7 +129,7 @@
     options = "--delete-older-than 7d";
   };
 
-  nix.settings.trusted-users = ["root" "irotnep" ];
+  nix.settings.trusted-users = ["irotnep" ];
   system.autoUpgrade = {
       enable = true;
 };
