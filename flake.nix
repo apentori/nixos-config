@@ -49,6 +49,7 @@
       achilleus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; system = "x86_64-linux";};
         modules = [
+        agenix.nixosModules.default
         catppuccin.nixosModules.catppuccin
         ./hosts/achilleus/configuration.nix
         hardware.nixosModules.system76

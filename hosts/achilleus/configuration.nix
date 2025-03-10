@@ -13,6 +13,7 @@
       ../../roles/default.nix
       ../../roles/work.nix
       ../../roles/laptop.nix
+      ../../roles/wireguard.nix
     ];
 
    boot.loader.grub = {
@@ -47,7 +48,8 @@
     hostId = "8425e349";
     networkmanager.enable = true;
     wireless.userControlled.enable = true;
-    #networkmanager.wifi.powersave = true;
+    firewall.allowedTCPPorts = [ 51820 ];
+
   };
 
   catppuccin = {
@@ -90,7 +92,6 @@
     layout = "us";
     variant = "altgr-intl";
     };
-#    videoDrivers = [ "amdgpu" "displaylink" "modesetting" ];
   };
 
   hardware = {

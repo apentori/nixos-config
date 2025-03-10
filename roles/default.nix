@@ -4,15 +4,14 @@
   environment.systemPackages = with pkgs; [
     # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
-    zip unzip
-    thefuck direnv oh-my-zsh
+    zip unzip thefuck direnv oh-my-zsh
     # monitoring
     btop monitorets usbutils
     # Code
     neovim jq fzf silver-searcher git nodejs
     gcc mpv scdoc busybox
     # Networking
-    wget curl nmap nettools traceroute dnsutils wirelesstools blueman
+    wget curl nmap nettools traceroute dnsutils wirelesstools blueman wireguard-tools
     # file system
     ncdu zfs zfstools
     # security
@@ -24,7 +23,7 @@
     xdg-utils
     vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
-    firefox 
+    firefox
   ];
 
   fonts.packages = with pkgs; [
