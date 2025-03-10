@@ -5,6 +5,7 @@
     ./promtail.nix
     ./paperless.nix
     ./tandoor.nix
+    ./docmost.nix
     ];
 
   programs.zsh.ohMyZsh = {
