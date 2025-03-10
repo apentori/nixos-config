@@ -5,7 +5,7 @@
 { config, lib, pkgs, ... }:
 let
   SSID = "Livebox6-0600";
-  SSIDpassword = "somePassword";
+  SSIDpassword = "Nfv9HTEb6qts";
   interface = "wlan0";
 in
 {
