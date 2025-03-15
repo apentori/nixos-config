@@ -21,14 +21,8 @@ in
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
-# boot.loader.generic-extlinux-compatible.enable = true;
- # boot.loader.raspberryPi = {
- #   enable = true;
- #   version = 3;
- #   firmwareConfig = ''
- #     core_freq=250
- #   '';
- # };
+  boot.loader.generic-extlinux-compatible.enable = true;
+
   hardware.enableRedistributableFirmware = true;
   # Pick only one of the below networking options.
   networking = {
