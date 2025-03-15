@@ -7,12 +7,12 @@ services:
       - db
       - redis
     environment:
-      APP_URL: 'http://localhost:3000'
+      APP_URL: 'https://docmost.irotnep.net'
       APP_SECRET: '29b5a873ebab23a600639ba6de70f809'
       DATABASE_URL: 'postgresql://docmost:STRONG_DB_PASSWORD@db:5432/docmost?schema=public'
       REDIS_URL: 'redis://redis:6379'
     ports:
-      - "3000:3000"
+      - "4000:3000"
     restart: unless-stopped
     volumes:
       - docmost:/app/data/storage
