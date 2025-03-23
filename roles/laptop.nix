@@ -10,5 +10,6 @@
     libsForQt5.kdeconnect-kde
     feishin yt-dlp id3v2
     ungoogled-chromium
+    pdftk # PDF modidification tools
   ];
 }
