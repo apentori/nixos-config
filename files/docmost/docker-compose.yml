@@ -3,37 +3,40 @@ version: '3'
 services:
   docmost:
     image: docmost/docmost:latest
+    container_name: docmost
     depends_on:
       - db
       - redis
+    env_file:
+      - /data/docmost/docmost.env
     environment:
       APP_URL: 'https://docmost.irotnep.net'
-      APP_SECRET: '29b5a873ebab23a600639ba6de70f809'
-      DATABASE_URL: 'postgresql://docmost:STRONG_DB_PASSWORD@db:5432/docmost?schema=public'
       REDIS_URL: 'redis://redis:6379'
     ports:
       - "4000:3000"
     restart: unless-stopped
     volumes:
-      - docmost:/app/data/storage
+      - /data/docmost/app:/app/data/storage
 
   db:
     image: postgres:16-alpine
+    container_name: docmost-db
+    env_file:
+      - /data/docmost/docmost.env
     environment:
       POSTGRES_DB: docmost
       POSTGRES_USER: docmost
-      POSTGRES_PASSWORD: STRONG_DB_PASSWORD
     restart: unless-stopped
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - /data/docmost/db:/var/lib/postgresql/data
 
   redis:
     image: redis:7.2-alpine
+    container_name: docmost-redis
     restart: unless-stopped
     volumes:
-      - redis_data:/data
+      - redis:/data
+
 
 volumes:
-  docmost:
-  db_data:
-  redis_data:
+  redis:

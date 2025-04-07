@@ -21,4 +21,5 @@ in
   "services/tandoor/secret-key.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
   "services/grafana/admin-pass.age" = { publicKeys = [ irotnep hyperion achilleus ]; };
   "services/wireguard/private-key.age" = { publicKeys = [ irotnep hyperion mnemosyme achilleus ]; };
+  "services/docmost/env.age" = { publicKeys = [ irotnep hyperion mnemosyme achilleus ]; };
 }
