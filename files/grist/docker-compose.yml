@@ -1,0 +1,10 @@
+services:
+  grist:
+    image: gristlabs/grist
+    container_name: grist
+    env_file:
+      - /data/grist/grist.env
+    ports:
+      - "8484:8484"
+    volumes:
+      - /data/grist/data:/persist
