@@ -11,7 +11,7 @@
     feishin yt-dlp id3v2
     ungoogled-chromium
     pdftk # PDF modidification tools
-        # Game dev
+    # Game dev
     godot_4
 
   ];

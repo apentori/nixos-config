@@ -18,6 +18,7 @@
       ../../roles/ghostfolio.nix
       ../../roles/nginx.nix
       ../../roles/media.nix
+      ../../roles/headscale.nix
     ];
   boot.loader.grub = {
     enable = true;
