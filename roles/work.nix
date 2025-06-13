@@ -58,6 +58,9 @@ in {
     jsonnet appimage-run
     # Yubikey
     yubikey-agent yubikey-manager pinentry
+    yubikey-personalization
+    yubikey-manager
+    age age-plugin-yubikey
     # Docs
     zeal
     # Notes
