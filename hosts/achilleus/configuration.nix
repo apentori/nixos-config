@@ -13,7 +13,8 @@
       ../../roles/default.nix
       ../../roles/work.nix
       ../../roles/laptop.nix
-      ../../roles/wireguard.nix
+#      ../../roles/game.nix
+      #../../roles/wireguard.nix
     ];
 
    boot.loader.grub = {
@@ -118,9 +119,11 @@
 
   services.upower.enable = true;
   nixpkgs.config.permittedInsecurePackages = [
-      "electron-31.7.7"
+    "electron-33.4.11"
       "vault-1.18.10"
   ];
+
+  nixpkgs.config.android_sdk.accept_license = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
