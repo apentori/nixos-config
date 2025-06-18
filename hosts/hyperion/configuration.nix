@@ -19,6 +19,7 @@
       ../../roles/nginx.nix
       ../../roles/media.nix
       ../../roles/headscale.nix
+      ../../roles/tailscale.nix
     ];
   boot.loader.grub = {
     enable = true;
@@ -64,37 +65,6 @@
     allowedTCPPorts = [ 22 51820 ];
     enable = true;
   };
-  # Wireguard config
-#  age.secrets = {
-#    "wireguard/private-key" = {
-#      file = ../../secrets/services/wireguard/private-key.age;
-#      path = "/etc/wireguard/private";
-#    };
-#  };
-#
-#  networking.wireguard.interfaces = {
-#    wg0 = {
-#      ips = [ "10.100.0.1/24" ];
-#      listenPort = 51820;
-#      privateKeyFile = "/etc/wireguard/private";
-#      postSetup = ''
-#        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
-#      '';
-#
-#      # This undoes the above command
-#      postShutdown = ''
-#        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
-#      '';
-#      peers = [
-#        # List of allowed peers.
-#        { # Feel free to give a meaning full name
-#          publicKey = "wireguard-public-key";
-#          allowedIPs = [ "10.100.0.2/32" ];
-#        }
-#      ];
-#    };
-#  };
-
 
   nix.settings = {
     trusted-users = ["root" "irotnep" ];

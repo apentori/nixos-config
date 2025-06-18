@@ -14,7 +14,7 @@
       ../../roles/work.nix
       ../../roles/laptop.nix
 #      ../../roles/game.nix
-      #../../roles/wireguard.nix
+      ../../roles/tailscale.nix
     ];
 
    boot.loader.grub = {

@@ -9,7 +9,10 @@ in {
       address = "0.0.0.0";
       port = 8080;
       settings = {
-        dns = { baseDomain = "irotnep.net"; };
+        dns = {
+          magic_dns= true;
+          base_domain = "irotn.ep";
+        };
         server_url = "https://${domain}";
         logtail.enable = false;
       };
@@ -24,6 +27,7 @@ in {
       };
     };
   };
+  users.users.irotnep.extraGroups = [ "headscale" ];
 
   environment.systemPackages = with pkgs; [ headscale ];
 }
