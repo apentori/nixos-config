@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
   #wine
+  lua5.1-luarocks
   # winetricks (all versions)
   winetricks
   # native wayland support (unstable)
