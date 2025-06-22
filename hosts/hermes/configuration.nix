@@ -29,17 +29,16 @@
 
   networking ={
     hostName = "hermes"; # Define your hostname.
-    hostId = "a425e349";	
+    hostId = "a425e349";
     networkmanager.enable = true;
     wireless.userControlled.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     catppuccin-gtk
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
-    inputs.ags.packages.aarch64-linux.agsFull
     inputs.hypr-panel.packages."${system}".default
   ];
 

@@ -1,7 +1,11 @@
-.PHONY: local remote
+.PHONY: local remote test
+test:
+	HOST=$(shell hostname)
+	echo ${HOST}
 
 local:
-	sudo nixos-rebuild switch --flake ".#achilleus"
+	HOST=$(shell hostname)
+	sudo nixos-rebuild switch --flake ".#$(shell hostname)"
 
 remote-hyperion:
 	nixos-rebuild switch --target-host irotnep@hyperion.irotnep.net --flake ".#hyperion" --use-remote-sudo

@@ -61,7 +61,7 @@
         modules = [
         agenix.nixosModules.default
         catppuccin.nixosModules.catppuccin
-        ./hosts/achilleus/configuration.nix
+        ./hosts/hermes/configuration.nix
         {nixpkgs.overlays = [inputs.hypr-panel.overlay];}
         ];
       };
