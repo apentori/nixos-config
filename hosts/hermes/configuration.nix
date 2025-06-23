@@ -35,6 +35,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    tuxedo-rs
     catppuccin-gtk
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
@@ -85,11 +86,12 @@
   };
 
   hardware = {
-      bluetooth.enable = true;
-      system76 = {
-        enableAll = true;
-        kernel-modules.enable = true;
-      };
+    bluetooth.enable = true;
+    tuxedo-drivers.enable = true;
+    tuxedo-rs = {
+      enable = true;
+      tailor-gui.enable = true;
+    };
   };
 
   xdg.portal.enable = true;
