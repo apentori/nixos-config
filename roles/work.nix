@@ -52,8 +52,6 @@ in {
     scaleway-cli aliyun-cli hcloud
     # Python dev
     myPython
-    # Databases
-    postgresql_14_jit
     # Utils
     jsonnet appimage-run
     # Yubikey
@@ -67,6 +65,8 @@ in {
     obsidian joplin-desktop
     # VPN
     tailscale
+    # Data
+    trino-cli postgresql_14_jit
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
