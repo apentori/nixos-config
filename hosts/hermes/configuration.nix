@@ -27,6 +27,11 @@
     ];
   };
 
+  boot.kernelParams = [
+    "tuxedo_keyboard.mode=0"
+    "tuxedo_keyboard.brightness=25"
+    "tuxedo_keyboard.color_left=0x0000ff"
+  ];
   networking ={
     hostName = "hermes"; # Define your hostname.
     hostId = "a425e349";
@@ -88,6 +93,7 @@
   hardware = {
     bluetooth.enable = true;
     tuxedo-drivers.enable = true;
+    tuxedo-keyboard.enable = true;
     tuxedo-rs = {
       enable = true;
       tailor-gui.enable = true;
