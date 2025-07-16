@@ -17,21 +17,25 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.grub = {
-    enable = true;
-    zfsSupport = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    mirroredBoots = [
-      { devices = [ "nodev"]; path = "/boot"; }
+  boot = {
+    loader.grub = {
+      enable = true;
+      zfsSupport = true;
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+      mirroredBoots = [
+        { devices = [ "nodev"]; path = "/boot"; }
+      ];
+    };
+    supportedFilesystems = [ "ntfs" ];
+    extraModulePackages = [ config.boot.kernelPackages.evdi ];
+    kernelParams = [
+      "evdi"
+      "amdgpu"
+      "video=eDP-1,2560x1600@240"
+      "video=DP-1:3840x2160@60"
     ];
   };
-
-  boot.kernelParams = [
-    "tuxedo_keyboard.mode=0"
-    "tuxedo_keyboard.brightness=25"
-    "tuxedo_keyboard.color_left=0x0000ff"
-  ];
   networking ={
     hostName = "hermes"; # Define your hostname.
     hostId = "a425e349";
@@ -40,6 +44,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    displaylink
     tuxedo-rs
     catppuccin-gtk
     catppuccin-kvantum
@@ -88,12 +93,13 @@
     layout = "us";
     variant = "altgr-intl";
     };
+    videoDrivers = [ "displaylink" "modesetting" ];
   };
 
   hardware = {
     bluetooth.enable = true;
     tuxedo-drivers.enable = true;
-    tuxedo-keyboard.enable = true;
+    #tuxedo-keyboard.enable = false;
     tuxedo-rs = {
       enable = true;
       tailor-gui.enable = true;

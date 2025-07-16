@@ -61,6 +61,7 @@
         modules = [
         agenix.nixosModules.default
         catppuccin.nixosModules.catppuccin
+        hardware.nixosModules.common-cpu-amd
         ./hosts/hermes/configuration.nix
         {nixpkgs.overlays = [inputs.hypr-panel.overlay];}
         ];

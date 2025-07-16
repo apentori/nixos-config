@@ -2,8 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Monitors and Docks
-    #displaylink
     flameshot
     # Sensors scans
     lm_sensors
@@ -24,7 +22,7 @@
       enable = true;
       frequency = 1;
       interval = "daily";
-      }
+      };
     scanner.enable= true;
   };
 }
