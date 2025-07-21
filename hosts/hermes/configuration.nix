@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, system, inputs, ... }:
 
 {
@@ -14,6 +10,7 @@
       ../../roles/work.nix
       ../../roles/laptop.nix
       ../../roles/tailscale.nix
+      ../../pkgs
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -51,14 +48,23 @@
     catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
     inputs.hypr-panel.packages."${system}".default
+    mypackages.gtk-theme
   ];
+
+  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
+    gtk-theme-name = "Juno"
+  '';
+
+  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-theme-name = Juno
+  '';
 
   catppuccin = {
     enable = true;
   };
 
   environment.variables = {
-    GTK_THEME = "catppuccin-macchiato-teal-standard";
     XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
     XCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "Catppuccin-Macchiato-Teal";
