@@ -19,6 +19,7 @@ let
     ansible-core
     hvac
     # dbt
+    pillow
     #dbt-postgres rpds-py
   ];
   myPython = pkgs.python311.withPackages myPythonPkgs;
@@ -35,7 +36,7 @@ in {
     pinentry
     gnupg gnupg1
     (callPackage ../packages/stacking-deposit.nix {})
-
+    aider-chat-full
   ];
 
   users.users.irotnep.packages = with pkgs; [
