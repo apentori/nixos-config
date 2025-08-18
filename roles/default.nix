@@ -24,12 +24,12 @@
     vimPlugins.LazyVim
     inputs.agenix.packages."${pkgs.system}".default
     firefox
+    nerdfetch
   ];
 
   fonts.packages = with pkgs; [
-    nerdfonts
     meslo-lgs-nf
-    fira-code
+    nerd-fonts.fira-code
     fira-code-symbols
   ];
   # Shell

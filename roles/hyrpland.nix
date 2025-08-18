@@ -31,6 +31,7 @@
     # media
     imv mpv
     yazi
+    hyprpanel
   ];
 
   services.greetd = {

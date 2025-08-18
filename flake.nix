@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url  = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url  = "github:nixos/nixpkgs/nixos-25.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
     agenix.url   = "github:ryantm/agenix";
@@ -13,7 +13,6 @@
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     ags.url = "github:aylur/ags";
-    hypr-panel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -25,7 +24,6 @@
     catppuccin,
     zen-browser,
     ags,
-    hypr-panel,
     ...
   }@inputs:
     let
@@ -53,7 +51,6 @@
         catppuccin.nixosModules.catppuccin
         ./hosts/achilleus/configuration.nix
         hardware.nixosModules.system76
-        {nixpkgs.overlays = [inputs.hypr-panel.overlay];}
         ];
       };
       hermes = nixpkgs.lib.nixosSystem {
@@ -63,7 +60,6 @@
         catppuccin.nixosModules.catppuccin
         hardware.nixosModules.common-cpu-amd
         ./hosts/hermes/configuration.nix
-        {nixpkgs.overlays = [inputs.hypr-panel.overlay];}
         ];
       };
       theseus = nixpkgs.lib.nixosSystem {

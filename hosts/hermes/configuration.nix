@@ -28,10 +28,10 @@
     extraModulePackages = [ config.boot.kernelPackages.evdi ];
     kernelParams = [
       "evdi"
-      "amdgpu"
       "video=eDP-1,2560x1600@240"
       "video=DP-1:3840x2160@60"
     ];
+    initrd.kernelModules = ["amdgpu"];
   };
   networking ={
     hostName = "hermes"; # Define your hostname.
@@ -47,8 +47,8 @@
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
-    inputs.hypr-panel.packages."${system}".default
     mypackages.gtk-theme
+    ollama
   ];
 
   environment.etc."xdg/gtk-2.0/gtkrc".text = ''
@@ -99,7 +99,7 @@
     layout = "us";
     variant = "altgr-intl";
     };
-    videoDrivers = [ "displaylink" "modesetting" ];
+    videoDrivers = [ "displaylink" "modesetting" "amdgpu"];
   };
 
   hardware = {
