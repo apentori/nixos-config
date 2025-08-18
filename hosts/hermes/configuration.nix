@@ -10,6 +10,7 @@
       ../../roles/work.nix
       ../../roles/laptop.nix
       ../../roles/tailscale.nix
+      ../../roles/monitoring.nix
       ../../pkgs
     ];
 
@@ -25,11 +26,11 @@
       ];
     };
     supportedFilesystems = [ "ntfs" ];
-    extraModulePackages = [ config.boot.kernelPackages.evdi ];
+    # extraModulePackages = [ config.boot.kernelPackages.evdi ];
     kernelParams = [
-      "evdi"
-      "video=eDP-1,2560x1600@240"
-      "video=DP-1:3840x2160@60"
+    #  "evdi"
+    #  "video=eDP-1,2560x1600@240"
+    #  "video=DP-1:3840x2160@60"
     ];
     initrd.kernelModules = ["amdgpu"];
   };
@@ -37,18 +38,18 @@
     hostName = "hermes"; # Define your hostname.
     hostId = "a425e349";
     networkmanager.enable = true;
-    wireless.userControlled.enable = true;
+    wireless.userControlled.enable = false;
   };
 
   environment.systemPackages = with pkgs; [
-    displaylink
+    #displaylink
     tuxedo-rs
     catppuccin-gtk
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
     mypackages.gtk-theme
-    ollama
+    ollama-rocm opencode
   ];
 
   environment.etc."xdg/gtk-2.0/gtkrc".text = ''
@@ -99,21 +100,22 @@
     layout = "us";
     variant = "altgr-intl";
     };
-    videoDrivers = [ "displaylink" "modesetting" "amdgpu"];
+    videoDrivers = [ "amdgpu"];
   };
 
   hardware = {
     bluetooth.enable = true;
-    tuxedo-drivers.enable = true;
+    #tuxedo-drivers.enable = true;
     #tuxedo-keyboard.enable = false;
     tuxedo-rs = {
       enable = true;
       tailor-gui.enable = true;
     };
+    graphics.enable = true;
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     # Enable sound.
   services.blueman.enable = true;
   security.rtkit.enable = true;

@@ -13,16 +13,16 @@
     # Game dev
     godot_4
     # Security
-    clamav clamtk
+    #clamav clamtk
   ];
 
-  services.clamav = {
-    daemon.enable=true;
-    updater = {
-      enable = true;
-      frequency = 1;
-      interval = "daily";
-      };
-    scanner.enable= true;
-  };
+ # services.clamav = {
+ #   daemon.enable=true;
+ #   updater = {
+ #     enable = true;
+ #     frequency = 1;
+ #     interval = "daily";
+ #     };
+ #   scanner.enable= true;
+ # };
 }
