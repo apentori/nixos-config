@@ -14,12 +14,12 @@
       ../../roles/servers.nix
       ../../roles/grafana.nix
       ../../roles/loki.nix
-      ../../roles/nextcloud.nix
       ../../roles/ghostfolio.nix
       ../../roles/nginx.nix
       ../../roles/media.nix
       ../../roles/headscale.nix
       ../../roles/tailscale.nix
+      ../../roles/monitoring.nix
     ];
   boot.loader.grub = {
     enable = true;
@@ -71,9 +71,15 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "python3.11-youtube-dl-2021.12.17"
-  ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+      "python3.11-youtube-dl-2021.12.17"
+      ];
+    };
+  };
+
 
   system.stateVersion = "24.05"; # Did you read the comment?
 

@@ -1,14 +1,49 @@
-{ pkgs, secret, ...}:
-{
-services.netdata = {
+{ pkgs, config, secret, ...}:
+let
+  inherit (config) services;
+  listenPort = 9000;
+in {
+  services.netdata = {
     enable = true;
-    configDir."stream.conf" = pkgs.writeText "stream.conf" ''
-      [stream]
-      enabled = yes
-      destination = localhost:1999
-    '';
+    config = {
+      "global" = {
+        "hostname" = config.networking.hostName;
+        "run as user" = "root";
+        "update every" = 5;
+        "memory mode" = "ram";
+        "error log" = "/var/log/netdata/error.log";
+        "debug log" = "none";
+        "access log" = "none";
+      };
+      "web" = {
+        "default port" = listenPort;
+        "allow connections from" = "localhost 100.64.0.* 192.168.1.*";
+      };
+      "health" = { "enabled" = "no"; };
+      "statsd" = { "enabled" = "no"; };
+      "plugins" = {
+        "idlejitter" = "no";
+        "python.d" = "yes";
+        "node.d" = "no";
+        "charts.d" = "no";
+        "fping" = "no";
+        "tc" = "no";
+      };
+      "plugin:apps" = { "update every" = 10; };
+      "plugin:proc:diskspace" = {
+        "update every" = 10;
+        "check for new mount points every" = 0;
+      };
+      "plugin:proc" = {
+        "/proc/net/snmp" = "no";
+        "/proc/net/snmp6" = "no";
+        "/proc/net/ip_vs/stats" = "no";
+        "/proc/net/stat/synproxy" = "no";
+        "/proc/net/stat/nf_conntrack" = "no";
+      };
     };
-services.netdata.package = pkgs.netdata.override {
-  withCloudUi = true;
+  };
+  services.netdata.package = pkgs.netdata.override {
+    withCloudUi = true;
 };
 }

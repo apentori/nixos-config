@@ -33,4 +33,13 @@
      recommendedProxySettings = true;
     };
   };
+  services.nginx.virtualHosts."grafana.irotn.ep" = {
+    addSSL = false;
+    enableACME= false;
+       locations."/" = {
+     proxyPass = "http://${toString config.services.grafana.settings.server.http_addr}:${toString config.services.grafana.settings.server.http_port}";
+     proxyWebsockets = true;
+     recommendedProxySettings = true;
+    };
+  };
 }

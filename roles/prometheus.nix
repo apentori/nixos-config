@@ -1,17 +1,29 @@
-{ config, pkgs,  ... }:
+{lib, config, ... }:
 
-let 
+let
   inherit (config) services;
-  
-  genScrapeJob = { name, path, port }: { 
+
+  default = { netdata = 9000;};
+
+  hosts = {
+    "hermes.irotn.ep"     = default;
+    "hyperion.irotn.ep"   = default;
+  };
+
+  hostsWithPort = service: lib.filterAttrs(_: v: lib.hasAttr service v) hosts;
+
+  genTargets = service:
+    lib.mapAttrsToList
+    (host: val: "${host}:${toString (lib.getAttr service val)}")
+    (hostsWithPort service);
+
+  genScrapeJob = { name, path, port }: {
     job_name = name;
     metrics_path = path;
     scrape_interval = "60s";
     scheme = "http";
     params = { format = [ "prometheus" ]; };
-    static_configs = [{ 
-      targets = ["127.0.0.1:${toString port}"];
-    }];
+    static_configs = [{ targets = genTargets name; }];
   };
 in {
   services.prometheus = {

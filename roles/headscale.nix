@@ -12,6 +12,9 @@ in {
         dns = {
           magic_dns= true;
           base_domain = "irotn.ep";
+          extra_records = [
+            { name = "grafana.irotn.ep"; type= "A"; value = "100.64.0.5"; }
+          ];
         };
         server_url = "https://${domain}";
         logtail.enable = false;
