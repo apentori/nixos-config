@@ -11,6 +11,7 @@
       ../../roles/laptop.nix
       ../../roles/tailscale.nix
       ../../roles/monitoring.nix
+      ../../roles/themes.nix
       ../../pkgs
     ];
 
@@ -48,28 +49,10 @@
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
-    mypackages.gtk-theme
-    ollama-rocm opencode
   ];
-
-  environment.etc."xdg/gtk-2.0/gtkrc".text = ''
-    gtk-theme-name = "Juno"
-  '';
-
-  environment.etc."xdg/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-theme-name = Juno
-  '';
 
   catppuccin = {
     enable = true;
-  };
-
-  environment.variables = {
-    XCURSOR_THEME = "Catppuccin-Macchiato-Teal";
-    XCURSOR_SIZE = "24";
-    HYPRCURSOR_THEME = "Catppuccin-Macchiato-Teal";
-    HYPRCURSOR_SIZE = "24";
   };
 
   nixpkgs = {
@@ -114,9 +97,7 @@
     graphics.enable = true;
   };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
-    # Enable sound.
+  # Enable sound.
   services.blueman.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
