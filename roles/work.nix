@@ -52,7 +52,7 @@ in {
     awscli s3cmd #unstable.doctl google-cloud-sdk
     scaleway-cli aliyun-cli hcloud
     # Python dev
-    myPython
+    myPython poetry uv ruff
     # Utils
     jsonnet appimage-run
     # Yubikey
@@ -67,7 +67,7 @@ in {
     # VPN
     tailscale
     # Data
-    trino-cli postgresql_14_jit
+    trino-cli postgresql_15_jit
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
