@@ -33,10 +33,9 @@ in {
     ripgrep
     docker docker-compose
     marp-cli
-    pinentry
     gnupg gnupg1
+    pinentry-tty
     (callPackage ../packages/stacking-deposit.nix {})
-    aider-chat-full
   ];
 
   users.users.irotnep.packages = with pkgs; [
@@ -56,7 +55,7 @@ in {
     # Utils
     jsonnet appimage-run
     # Yubikey
-    yubikey-agent yubikey-manager pinentry
+    yubikey-agent yubikey-manager
     yubikey-personalization
     yubikey-manager
     age age-plugin-yubikey
