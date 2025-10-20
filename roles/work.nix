@@ -67,6 +67,8 @@ in {
     tailscale
     # Data
     trino-cli postgresql_15_jit
+    libxml2
+    opencode # AI
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
@@ -90,5 +92,9 @@ in {
     #pinentryFlavor = "gnome3";
     #pinentryFlavor = "gtk2";
   };
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    uv
+  ];
   virtualisation.docker.enable = true;
 }
