@@ -11,7 +11,6 @@
       ../../roles/users.nix
       ../../roles/default.nix
       ../../roles/work.nix
-      ../../roles/personnal.nix
       ../../roles/kde.nix
     ];
 
@@ -20,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-64b17a8a-f7f9-43e4-81fe-18ee7d36df7f".device = "/dev/disk/by-uuid/64b17a8a-f7f9-43e4-81fe-18ee7d36df7f";
-  networking.hostName = "theseus"; 
+  networking.hostName = "theseus";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Enable networking

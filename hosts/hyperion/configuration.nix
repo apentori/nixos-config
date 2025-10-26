@@ -20,6 +20,7 @@
       ../../roles/headscale.nix
       ../../roles/tailscale.nix
       ../../roles/monitoring.nix
+      ../../roles/personnal.nix
     ];
   boot.loader.grub = {
     enable = true;

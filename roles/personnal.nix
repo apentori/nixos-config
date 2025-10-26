@@ -1,32 +1,35 @@
-{ pkgs, ... }:
-
+{ config, secret, ... }:
 {
-  environment.systemPackages = with pkgs; [
-  #wine
-  lua5.1-luarocks
-  # winetricks (all versions)
-  winetricks
-  # native wayland support (unstable)
-  wineWowPackages.waylandFull
-  # Finance tools
-  denaro
-  ledger-live-desktop ledger-udev-rules
-  qemu
-  keepassxc
-  joplin-desktop
-];
-services.udev.packages = with pkgs; [ ledger-udev-rules ];
-  users.users.irotnep.packages = with pkgs; [
-    # Web
-    firefox brave
-    # Communication
-    discord
-    # Note
-    obsidian
+  imports = [
+    ../services/habitsync.nix
+  ];
+  age.secrets."habitsync-jwt-secret" = {
+    file = ../secrets/services/habitsync/jwt-secret.age;
+    path = "/data/habitsync/jwt-secret.env";
+  };
+  age.secrets."habitsync-basic-auth" = {
+    file = ../secrets/services/habitsync/basic-auth.age;
+    path = "/data/habitsync/basic-auth.env";
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /data/habitsync/data 0750 6842 docker"
   ];
 
-  programs.zsh.ohMyZsh = {
+  services.habitsync = {
     enable = true;
-    theme = "agnoster";
+    baseUrl = "http://habit.irotn.ep";
+    jwtSecretPath = "/data/habitsync/jwt-secret.env";
+    basicAuthPath = "/data/habitsync/basic-auth.env";
+    dbVolumePath = "/data/habitsync/data";
+  };
+  services.nginx.virtualHosts."habit.irotn.ep" = {
+    addSSL = false;
+    enableACME= false;
+       locations."/" = {
+     proxyPass = "http://127.0.0.1:${toString config.services.habitsync.port}";
+     proxyWebsockets = true;
+     recommendedProxySettings = true;
+    };
   };
 }
