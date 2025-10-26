@@ -1,14 +1,14 @@
 { config, secret, ... }:
 {
   imports = [
-    ../services/habitsync.nix
+    ../../services/habitsync.nix
   ];
   age.secrets."habitsync-jwt-secret" = {
-    file = ../secrets/services/habitsync/jwt-secret.age;
+    file = ../../secrets/services/habitsync/jwt-secret.age;
     path = "/data/habitsync/jwt-secret.env";
   };
   age.secrets."habitsync-basic-auth" = {
-    file = ../secrets/services/habitsync/basic-auth.age;
+    file = ../../secrets/services/habitsync/basic-auth.age;
     path = "/data/habitsync/basic-auth.env";
   };
 
@@ -23,6 +23,7 @@
     basicAuthPath = "/data/habitsync/basic-auth.env";
     dbVolumePath = "/data/habitsync/data";
   };
+
   services.nginx.virtualHosts."habit.irotn.ep" = {
     addSSL = false;
     enableACME= false;

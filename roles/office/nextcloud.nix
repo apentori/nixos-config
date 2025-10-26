@@ -1,7 +1,7 @@
 { pkgs, secret, ... }:
 {
   age.secrets."nextcloud-admin" = {
-    file = ../secrets/services/nextcloud/admin.age;
+    file = ../../secrets/services/nextcloud/admin.age;
     path = "/etc/nextcloud-admin-pass";
     owner = "nextcloud";
     group = "nextcloud";

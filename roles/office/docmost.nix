@@ -1,7 +1,7 @@
 { pkgs, secret, ...}:
 {
   age.secrets.docmost = {
-    file = ../secrets/services/docmost/env.age;
+    file = ../../secrets/services/docmost/env.age;
     path = "/data/docmost/docmost.env";
     owner = "irotnep";
     group = "docker";
@@ -20,7 +20,7 @@
 
   systemd.services.docmost = {
     script = ''
-      docker compose -f ${ ../files/docmost/docker-compose.yml} up
+      docker compose -f ${ ../../files/docmost/docker-compose.yml} up
     '';
     wantedBy = ["default.target"];
     after=["docker.service" "docker.socket"];

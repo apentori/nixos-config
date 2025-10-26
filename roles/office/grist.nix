@@ -5,7 +5,7 @@
   ];
 
   age.secrets.grist = {
-    file = ../secrets/services/grist/env.age;
+    file = ../../secrets/services/grist/env.age;
     path = "/data/grist/grist.env";
     owner = "irotnep";
     group = "docker";
@@ -14,7 +14,7 @@
   };
 
   age.secrets.grist-auth = {
-    file = ../secrets/services/grist/auth.age;
+    file = ../../secrets/services/grist/auth.age;
     path = "/etc/nginx/grist.auth";
     owner = "nginx";
     group = "nginx";
@@ -26,7 +26,7 @@
 
   systemd.services.grist = {
     script = ''
-      docker compose -f ${ ../files/grist/docker-compose.yml} up
+      docker compose -f ${ ../../files/grist/docker-compose.yml} up
     '';
     wantedBy = ["default.target"];
     after=["docker.service" "docker.socket"];

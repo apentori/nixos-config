@@ -1,7 +1,7 @@
 { pkgs, lib, config, ...}:
 {
     age.secrets."ghostfolio-admin" = {
-    file = ../secrets/services/ghostfolio/env.age;
+    file = ../../secrets/services/ghostfolio/env.age;
     path = "/data/ghostfolio/.env";
     owner = "irotnep";
     group = "docker";
@@ -13,7 +13,7 @@
   ];
   systemd.services.ghostfolio = {
     script = ''
-      docker compose -f ${ ../files/ghostfolio/docker-compose.yml} up
+      docker compose -f ${ ../../files/ghostfolio/docker-compose.yml} up
     '';
     wantedBy = ["default.target"];
     after=["docker.service" "docker.socket"];

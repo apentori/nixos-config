@@ -12,9 +12,8 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../roles/wifi.nix
-      ../../roles/default.nix
-      ../../roles/users.nix
+      ../../roles/environment/default.nix
+      ../../roles/environment/users.nix
 
     ];
   nixpkgs.system = "aarch64-linux";

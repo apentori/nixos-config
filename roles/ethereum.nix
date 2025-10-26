@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   imports = [
-      ./roles/go-ethereum.nix
-      ./nimbus-eth2.nix
+      ./ethereum/go-ethereum.nix
+      ./ethereum/nimbus-eth2.nix
   ];
 }

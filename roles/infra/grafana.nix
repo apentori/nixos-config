@@ -1,7 +1,7 @@
 { config, ...}:
 {
   age.secrets."grafana-admin" = {
-    file = ../secrets/services/grafana/admin-pass.age;
+    file = ../../secrets/services/grafana/admin-pass.age;
     path = "/etc/grafana/admin-pass";
     owner = "grafana";
     group = "grafana";
@@ -21,6 +21,30 @@
         admin_password = "$__file{/etc/grafana/admin-pass}";
       };
     };
+    provision = {
+      enable = true;
+      datasources.settings = {
+        datasources = [
+          {
+            name = "Prometheus";
+            type = "prometheus";
+            access = "proxy";
+            url = "http://localhost:${toString config.services.prometheus.port}";
+          }
+          {
+            name = "Loki";
+            type = "loki";
+            access = "proxy";
+            url = "http://localhost:${toString config.services.loki.configuration.server.http_listen_port}";
+            jsonData = {
+              timeout = 5*60;
+              maxLines = config.services.loki.configuration.limits_config.max_entries_limit_per_query;
+            };
+          }
+        ];
+      };
+    };
+
   };
 
 

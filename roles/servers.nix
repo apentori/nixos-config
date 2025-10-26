@@ -1,16 +1,19 @@
 { pkgs, ... }:
 {
   imports = [
-    ./prometheus.nix
-    ./promtail.nix
-    ./paperless.nix
-    ./tandoor.nix
-    ./docmost.nix
-    ./grist.nix
+    ./infra/nginx.nix
+    ./infra/headscale.nix
+    # Monitoring and logs
+    ./infra/prometheus.nix
+    ./infra/grafana.nix
+    ./infra/promtail.nix
+    ./infra/loki.nix
+    # Applications
+    ./office/paperless.nix
+    ./office/docmost.nix
+    ./office/grist.nix
+    ./misc/media.nix
+    ./misc/habitsync.nix
     ];
 
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    theme = "blinks";
-  };
 }

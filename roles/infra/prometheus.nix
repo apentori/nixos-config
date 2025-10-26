@@ -30,16 +30,11 @@ in {
     enable = true;
     globalConfig.scrape_interval = "10s";
     scrapeConfigs = [
-      (genScrapeJob {name= "nimbus";    path = "metrics";       port = 5052; })
-      (genScrapeJob {name= "geth";      path = "debug/metrics"; port = 6060; })
-      (genScrapeJob {name= "exporter";  path = "metrics";       port = 9090; })
+      (genScrapeJob { name = "nimbus";    path = "metrics";       port = 5052; })
+      (genScrapeJob { name = "geth";      path = "debug/metrics"; port = 6060; })
+      (genScrapeJob { name = "exporter";  path = "metrics";       port = 9090; })
+      (genScrapeJob { name = "netdata";   path = "/api/v1/allmetrics"; port = 9000; })
     ];
-#    exporters.node = {
-#      enable = true;
-#      port = 9000;
-#      enabledCollectors = [ "systemd" ];
-#      extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" "--collector.wifi" ];
-#    };
 
   };
 }

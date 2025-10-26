@@ -1,7 +1,7 @@
 { pkgs, secret, ... }:
 {
   age.secrets."tandoor-secret-key" = {
-    file = ../secrets/services/tandoor/secret-key.age;
+    file = ../../secrets/services/tandoor/secret-key.age;
     path = "/etc/tandoor-secret-key";
   };
 

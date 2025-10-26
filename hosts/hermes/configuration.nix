@@ -4,14 +4,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../roles/hyrpland.nix
-      ../../roles/users.nix
-      ../../roles/default.nix
-      ../../roles/work.nix
-      ../../roles/laptop.nix
-      ../../roles/tailscale.nix
-      ../../roles/monitoring.nix
-      ../../roles/themes.nix
+      ../../roles/environment/hyrpland.nix
+      ../../roles/environment
+      ../../roles/environment/work.nix
+      ../../roles/environment/laptop.nix
+      ../../roles/environment/themes.nix
       ../../pkgs
     ];
 

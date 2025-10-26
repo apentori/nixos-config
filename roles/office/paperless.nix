@@ -1,7 +1,7 @@
 { pkgs, secret, ... }:
 {
   age.secrets."paperless-admin" = {
-    file = ../secrets/services/paperless/admin.age;
+    file = ../../secrets/services/paperless/admin.age;
     path = "/etc/paperless-admin-pass";
     owner = "paperless";
     group = "paperless";

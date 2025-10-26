@@ -1,6 +1,12 @@
 { pkgs, inputs, ... }:
 
 {
+  imports = [
+    ./monitoring.nix
+    ./docker.nix
+    ./users.nix
+    ./tailscale.nix
+  ];
   environment.systemPackages = with pkgs; [
     # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
@@ -58,6 +64,11 @@
   services.uptimed.enable = true;
   services.openssh = {
     enable = true;
+  };
+
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    theme = "blinks";
   };
 
   }

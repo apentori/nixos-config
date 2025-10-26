@@ -8,10 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../roles/users.nix
-      ../../roles/default.nix
-      ../../roles/work.nix
-      ../../roles/kde.nix
+      ../../roles/environment/users.nix
+      ../../roles/environment/default.nix
+      ../../roles/environment/work.nix
+      ../../roles/environment/kde.nix
     ];
 
   # Bootloader.

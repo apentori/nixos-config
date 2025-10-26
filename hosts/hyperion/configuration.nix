@@ -8,19 +8,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../roles/users.nix
-      ../../roles/default.nix
-      ../../roles/docker.nix
+      ../../roles/environment
       ../../roles/servers.nix
-      ../../roles/grafana.nix
-      ../../roles/loki.nix
-      ../../roles/ghostfolio.nix
-      ../../roles/nginx.nix
-      ../../roles/media.nix
-      ../../roles/headscale.nix
-      ../../roles/tailscale.nix
-      ../../roles/monitoring.nix
-      ../../roles/personnal.nix
     ];
   boot.loader.grub = {
     enable = true;

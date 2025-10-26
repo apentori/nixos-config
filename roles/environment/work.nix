@@ -35,7 +35,7 @@ in {
     marp-cli
     gnupg gnupg1
     pinentry-tty
-    (callPackage ../packages/stacking-deposit.nix {})
+    (callPackage ../../packages/stacking-deposit.nix {})
   ];
 
   users.users.irotnep.packages = with pkgs; [
