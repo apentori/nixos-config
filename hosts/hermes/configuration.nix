@@ -9,6 +9,7 @@
       ../../roles/environment/work.nix
       ../../roles/environment/laptop.nix
       ../../roles/environment/themes.nix
+      ../../roles/infra/prometheus.nix
       ../../pkgs
     ];
 

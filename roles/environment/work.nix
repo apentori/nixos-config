@@ -22,7 +22,7 @@ let
     pillow
     #dbt-postgres rpds-py
   ];
-  myPython = pkgs.python311.withPackages myPythonPkgs;
+  myPython = pkgs.python312.withPackages myPythonPkgs;
 
 in {
    /* Required tools and libraries. */
