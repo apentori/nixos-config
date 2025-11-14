@@ -6,7 +6,7 @@ let
   services = config.services;
 in {
   imports = [
-    ../services/nimbus-eth2.nix
+    ../../services/ethereum/nimbus-eth2.nix
   ];
   config = let
     cfg = config.nimbus;
@@ -14,7 +14,7 @@ in {
     # Secret
     age.secrets = {
       jwt-secret = {
-        file = ../secrets/services/geth/jwt-secret.age;
+        file = ../../secrets/services/geth/jwt-secret.age;
         path = "/nimbus/jwt-secret";
         owner = "nimbus";
         group = "nimbus";

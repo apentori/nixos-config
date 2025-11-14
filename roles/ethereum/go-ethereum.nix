@@ -8,7 +8,7 @@ in {
     # Secrets
     age.secrets = {
       jwt-secret-geth =  {
-        file = ../secrets/services/geth/jwt-secret.age;
+        file = ../../secrets/services/geth/jwt-secret.age;
         path = "/geth/jwt-secret";
         owner = "geth-holesky";
         group = "geth-holesky";
