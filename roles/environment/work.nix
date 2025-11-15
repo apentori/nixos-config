@@ -68,7 +68,7 @@ in {
     # Data
     trino-cli postgresql_15_jit
     libxml2
-    opencode # AI
+    aider-chat # AI
   ];
   users.users.irotnep.extraGroups = [ "docker" ];
   /* Required udev rules for YubiKey usage */
