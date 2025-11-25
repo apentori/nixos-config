@@ -52,6 +52,8 @@ in {
     scaleway-cli aliyun-cli hcloud
     # Python dev
     myPython poetry uv ruff
+    # Dev
+    nodejs_24
     # Utils
     jsonnet appimage-run
     # Yubikey
