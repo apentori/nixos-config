@@ -2,7 +2,7 @@
 
 let
   # For details see: https://nixos.wiki/wiki/Python
-  myPythonPkgs = _: with (pkgs.python311Packages); [
+  myPythonPkgs = _: with (pkgs.python312Packages); [
     ipython pip
     # Development
     setuptools retry yapf mohawk grip pyyaml jinja2
