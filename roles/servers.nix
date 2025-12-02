@@ -14,6 +14,7 @@
     ./office/grist.nix
     ./misc/media.nix
     ./misc/habitsync.nix
+    ./misc/uniswap-watcher.nix
     ];
 
 }

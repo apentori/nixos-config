@@ -1,0 +1,29 @@
+provider_url: "https://mainnet.infura.io/v3/"
+api_key: ""
+# Frequency of Call to Uniswap
+frequency: 60
+
+database:
+  type: clickhouse
+  host: localhost
+  port: 8123
+  username: watcher
+  password: ChangeMeIfYouCare
+  database: watcher
+
+token_to_tracks:
+  - pair_name: "SNT-ETH"
+    base:
+      name: "ETH"
+      address: "0x0000000000000000000000000000000000000000"
+    against:
+      name: "SNT"
+      address: "0x744d70FDBE2Ba4CF95131626614a1763DF805B9E"
+  - pair_name: "ETH-USDT"
+    base:
+      name: "ETH"
+      address: "0x0000000000000000000000000000000000000000"
+    against:
+      name: "USDT"
+      address: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+
