@@ -5,6 +5,7 @@ test:
 
 local:
 	HOST=$(shell hostname)
+	NIX_SSHOPTS="-t"
 	sudo nixos-rebuild switch --flake ".#$(shell hostname)"
 
 remote-hyperion:

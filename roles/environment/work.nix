@@ -7,7 +7,7 @@ let
     # Development
     setuptools retry yapf mohawk grip pyyaml jinja2
     # Devops
-    boto3 wakeonlan PyGithub python-hosts cloudflare
+    boto3 wakeonlan pygithub python-hosts cloudflare
     # Security
     pyopenssl cryptography passlib
     # Databases
@@ -27,7 +27,7 @@ let
 in {
    /* Required tools and libraries. */
   environment.systemPackages = with pkgs; [
-    ccid opensc pcsctools
+    ccid opensc
     gnumake
     terraform
     ripgrep
@@ -42,7 +42,7 @@ in {
     # DevOps
     ansible vagrant
     # Security
-    bitwarden bitwarden-cli vault
+    vault
     # Communication tools
     discord element-web slack telegram-desktop
     # Network

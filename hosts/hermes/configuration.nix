@@ -90,8 +90,6 @@
       enable = true;
       tailor-gui.enable = true;
     };
-    amdgpu.amdvlk.enable = true;
-
   };
 
   # Enable sound.

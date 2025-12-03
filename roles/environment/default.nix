@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     # Utility
     file zsh bash man-pages sudo bc lsb-release uptimed
-    zip unzip thefuck direnv oh-my-zsh
+    zip unzip direnv oh-my-zsh
     # monitoring
     btop monitorets usbutils
     # Code

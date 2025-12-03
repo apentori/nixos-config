@@ -10,11 +10,11 @@
     xdg-desktop-portal-hyprland
     swaynotificationcenter # notification daemon
     alacritty # terminals
-    rofi-wayland # app launcher
+    rofi # app launcher
     networkmanagerapplet #network
     pipewire
     wireplumber # screen sharing
-    greetd.tuigreet
+    tuigreet
     pavucontrol
     wlogout swaybg  #Login etc..
     wlroots # Dynamic Menu

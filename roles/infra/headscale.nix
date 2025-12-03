@@ -12,6 +12,7 @@ in {
         dns = {
           magic_dns= true;
           base_domain = "irotn.ep";
+          override_local_dns= false;
           extra_records = [
             { name = "grafana.irotn.ep"; type= "A"; value = "100.64.0.5"; }
             { name = "habit.irotn.ep";   type= "A"; value = "100.64.0.5"; }
