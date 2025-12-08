@@ -14,8 +14,8 @@ in {
           base_domain = "irotn.ep";
           override_local_dns= false;
           extra_records = [
-            { name = "grafana.irotn.ep"; type= "A"; value = "100.64.0.5"; }
-            { name = "habit.irotn.ep";   type= "A"; value = "100.64.0.5"; }
+            { name = "grafana.irotn.ep"; type= "A"; value = "100.64.0.1"; }
+            { name = "habit.irotn.ep";   type= "A"; value = "100.64.0.1"; }
           ];
         };
         server_url = "https://${domain}";
