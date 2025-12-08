@@ -2,11 +2,12 @@ provider_url: "https://mainnet.infura.io/v3/"
 api_key: ""
 # Frequency of Call to Uniswap
 frequency: 60
+generate_candlestick: false
 
 database:
   type: clickhouse
   host: localhost
-  port: 8123
+  port: 9001
   username: watcher
   password: ChangeMeIfYouCare
   database: watcher
