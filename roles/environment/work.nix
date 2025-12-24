@@ -40,7 +40,8 @@ in {
 
   users.users.irotnep.packages = with pkgs; [
     # DevOps
-    ansible vagrant
+    ansible vagrant minikube kubectl 
+    qemu
     # Security
     vault
     # Communication tools
@@ -72,7 +73,7 @@ in {
     libxml2
     aider-chat # AI
   ];
-  users.users.irotnep.extraGroups = [ "docker" ];
+  users.users.irotnep.extraGroups = [ "docker" "kvm" "libvirt" ];
   /* Required udev rules for YubiKey usage */
   services.udev.packages = with pkgs; [
     yubikey-personalization
@@ -99,4 +100,4 @@ in {
     uv
   ];
   virtualisation.docker.enable = true;
-}
+  }
