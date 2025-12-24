@@ -45,7 +45,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       AllowUsers = [ "irotnep" ];
       UseDns = true;
     };
@@ -65,7 +65,6 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
-      "python3.11-youtube-dl-2021.12.17"
       ];
     };
   };
