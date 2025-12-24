@@ -27,4 +27,10 @@ token_to_tracks:
     against:
       name: "USDT"
       address: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-
+  - pair_name: "SSV-ETH"
+    base:
+      name: "ETH"
+      address: "0x0000000000000000000000000000000000000000"
+    against:
+      name: "SSV"
+      address: "0x9D65fF81a3c488d585bBfb0Bfe3c7707c7917f54"
