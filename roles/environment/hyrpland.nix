@@ -43,6 +43,7 @@
     imv mpv
     yazi
     hyprpanel
+    ags
   ];
 
   services.greetd = {

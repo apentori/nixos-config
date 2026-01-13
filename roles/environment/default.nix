@@ -31,6 +31,7 @@
     inputs.agenix.packages."${pkgs.system}".default
     firefox
     nerdfetch
+    localsend
   ];
 
   fonts.packages = with pkgs; [

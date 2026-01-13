@@ -40,7 +40,7 @@ in {
 
   users.users.irotnep.packages = with pkgs; [
     # DevOps
-    ansible vagrant minikube kubectl 
+    ansible vagrant minikube kubectl
     qemu
     # Security
     vault
@@ -72,6 +72,7 @@ in {
     trino-cli postgresql_15_jit
     libxml2
     aider-chat # AI
+    android-tools
   ];
   users.users.irotnep.extraGroups = [ "docker" "kvm" "libvirt" ];
   /* Required udev rules for YubiKey usage */
