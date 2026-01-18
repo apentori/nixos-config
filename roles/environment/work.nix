@@ -70,6 +70,7 @@ in {
     tailscale
     # Data
     trino-cli postgresql_15_jit
+    rainfrog # DB TUI
     libxml2
     aider-chat # AI
     android-tools
