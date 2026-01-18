@@ -12,7 +12,7 @@
     catppuccin.url = "github:catppuccin/nix";
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    ags.url = "github:aylur/ags";
+    mistral-vibe.url = "github:mistralai/mistral-vibe";
   };
 
   outputs = {
@@ -23,7 +23,7 @@
     agenix,
     catppuccin,
     zen-browser,
-    ags,
+    mistral-vibe,
     ...
   }@inputs:
     let
