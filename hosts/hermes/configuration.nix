@@ -46,6 +46,7 @@
     catppuccin-kvantum
     catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
+    inputs.mistral-vibe.packages."${system}".default
   ];
 
   catppuccin = {

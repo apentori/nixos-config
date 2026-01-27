@@ -21,6 +21,7 @@ let
     # dbt
     pillow
     #dbt-postgres rpds-py
+    rich
   ];
   myPython = pkgs.python312.withPackages myPythonPkgs;
 
