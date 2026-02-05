@@ -8,6 +8,7 @@
       ../../roles/environment
       ../../roles/environment/work.nix
       ../../roles/environment/laptop.nix
+      ../../roles/environment/crypto.nix
       ../../roles/environment/themes.nix
       ../../roles/infra/prometheus.nix
       ../../pkgs
@@ -42,16 +43,9 @@
   environment.systemPackages = with pkgs; [
     displaylink
     tuxedo-rs
-    catppuccin-gtk
-    catppuccin-kvantum
-    catppuccin-cursors.macchiatoTeal
     inputs.zen-browser.packages."${system}".default
     inputs.mistral-vibe.packages."${system}".default
   ];
-
-  catppuccin = {
-    enable = true;
-  };
 
   nixpkgs = {
     config = {
@@ -104,7 +98,6 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
-
   services.upower.enable = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-33.4.11"

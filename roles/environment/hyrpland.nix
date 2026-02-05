@@ -23,7 +23,7 @@
     cliphist # Clipboard manager
     pulsemixer pulseaudioFull# sound
     xdg-desktop-portal-wlr # Desktop portal
-    xdg-desktop-portal-gtk
+    #xdg-desktop-portal-gtk
     nautilus # file manager
     slurp grim # screen shot
     playerctl
@@ -33,8 +33,6 @@
     hyprland-qt-support
     hyprpolkitagent
     hyprcursor
-    nwg-displays
-    nwg-look
     waypaper
     mesa
     # PDF

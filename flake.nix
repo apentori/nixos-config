@@ -9,7 +9,6 @@
     agenix.url   = "github:ryantm/agenix";
     # Thems
     nix-colors.url = "github:misterio77/nix-colors";
-    catppuccin.url = "github:catppuccin/nix";
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     mistral-vibe.url = "github:mistralai/mistral-vibe";
@@ -21,7 +20,6 @@
     unstable,
     hardware,
     agenix,
-    catppuccin,
     zen-browser,
     mistral-vibe,
     ...
@@ -48,7 +46,6 @@
         specialArgs = {inherit inputs; system = "x86_64-linux";};
         modules = [
         agenix.nixosModules.default
-        catppuccin.nixosModules.catppuccin
         ./hosts/achilleus/configuration.nix
         hardware.nixosModules.system76
         ];
@@ -57,7 +54,6 @@
         specialArgs = {inherit inputs; system = "x86_64-linux";};
         modules = [
         agenix.nixosModules.default
-        catppuccin.nixosModules.catppuccin
         hardware.nixosModules.common-cpu-amd
         ./hosts/hermes/configuration.nix
         ];
@@ -65,7 +61,6 @@
       theseus = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-        catppuccin.nixosModules.catppuccin
         ./hosts/theseus/configuration.nix
         ];
       };
