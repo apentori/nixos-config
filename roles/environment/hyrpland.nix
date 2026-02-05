@@ -42,6 +42,7 @@
     yazi
     hyprpanel
     ags
+    quickshell
   ];
 
   services.greetd = {
