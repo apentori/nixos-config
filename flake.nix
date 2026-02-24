@@ -80,6 +80,13 @@
         ./hosts/mnemosyme/configuration.nix
         ];
       };
+      atlas = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+        ./hosts/atlas/configuration.nix
+        ];
+
+      };
    };
   };
 }
