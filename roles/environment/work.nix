@@ -41,7 +41,7 @@ in {
 
   users.users.irotnep.packages = with pkgs; [
     # DevOps
-    ansible vagrant minikube kubectl
+    ansible vagrant minikube kubectl kubernetes-helm
     qemu
     # Security
     vault
