@@ -73,7 +73,7 @@ in {
     trino-cli postgresql_15_jit
     rainfrog # DB TUI
     libxml2
-    aider-chat # AI
+    opencode # AI
     android-tools
   ];
   users.users.irotnep.extraGroups = [ "docker" "kvm" "libvirt" ];
