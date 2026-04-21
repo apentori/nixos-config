@@ -46,7 +46,7 @@ in {
     # Security
     vault
     # Communication tools
-    discord element-web slack telegram-desktop
+    discord element-web slack telegram-desktop element-desktop
     # Network
     netcat websocat tcpdump whois
     # Cloud
@@ -73,7 +73,6 @@ in {
     trino-cli postgresql_15_jit
     rainfrog # DB TUI
     libxml2
-    opencode # AI
     android-tools
   ];
   users.users.irotnep.extraGroups = [ "docker" "kvm" "libvirt" ];
