@@ -12,6 +12,7 @@
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     mistral-vibe.url = "github:mistralai/mistral-vibe";
+    tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     agenix,
     zen-browser,
     mistral-vibe,
+    tuxedo-nixos,
     ...
   }@inputs:
     let
@@ -55,6 +57,8 @@
         modules = [
         agenix.nixosModules.default
         hardware.nixosModules.common-cpu-amd
+        hardware.nixosModules.common-gpu-amd
+        tuxedo-nixos.nixosModules.default
         ./hosts/hermes/configuration.nix
         ];
       };

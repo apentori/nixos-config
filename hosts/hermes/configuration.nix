@@ -46,6 +46,9 @@
     inputs.zen-browser.packages."${system}".default
     inputs.mistral-vibe.packages."${system}".default
   ];
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+  };
 
   nixpkgs = {
     config = {
@@ -85,6 +88,12 @@
       enable = true;
       tailor-gui.enable = true;
     };
+    tuxedo-control-center.enable = true;
+    tuxedo-drivers.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   # Enable sound.
@@ -116,7 +125,7 @@
   system.autoUpgrade = {
       enable = true;
 };
- 
+
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
