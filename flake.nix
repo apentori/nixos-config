@@ -7,11 +7,8 @@
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
     agenix.url   = "github:ryantm/agenix";
-    # Thems
-    nix-colors.url = "github:misterio77/nix-colors";
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    mistral-vibe.url = "github:mistralai/mistral-vibe";
     tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
   };
 
@@ -22,7 +19,6 @@
     hardware,
     agenix,
     zen-browser,
-    mistral-vibe,
     tuxedo-nixos,
     ...
   }@inputs:

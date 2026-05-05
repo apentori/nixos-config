@@ -44,7 +44,6 @@
     displaylink
     tuxedo-rs
     inputs.zen-browser.packages."${system}".default
-    inputs.mistral-vibe.packages."${system}".default
   ];
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "radeonsi";
