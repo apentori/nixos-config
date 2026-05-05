@@ -29,6 +29,7 @@
     playerctl
 
     hyprlock
+    hyprshot
     hypridle
     hyprland-qt-support
     hyprpolkitagent
@@ -43,6 +44,8 @@
     hyprpanel
     ags
     quickshell
+
+    nordzy-cursor-theme # Cursors
   ];
 
   services.greetd = {
