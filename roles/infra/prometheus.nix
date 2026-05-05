@@ -8,6 +8,7 @@ let
   hosts = {
     "hyperion.irotn.ep" = default // { loki = 3030; };
     "hermes.irotn.ep" = default;
+    "atlas.irotn.ep" = default;
   };
 
   hostsWithPort = service: lib.filterAttrs(_: v: lib.hasAttr service v) hosts;

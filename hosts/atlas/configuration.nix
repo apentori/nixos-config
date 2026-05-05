@@ -8,6 +8,14 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+
+  networking = {
+    hostName = "atlas";
+    hostId = "8425e349";
+    networkmanager.enable = true;
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
@@ -22,11 +30,9 @@
       LC_TIME = "es_ES.UTF-8";
     };
   };
-
-  networking = {
-    hostName = "atlas";
-    hostId = "8425e349";
-  };
+  environment.systemPackages = with pkgs; [
+    networkmanager
+  ];
 
   time.timeZone = "Europe/Madrid";
 
@@ -34,7 +40,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = false;
+      #PasswordAuthentication = false;
       AllowUsers = [ "irotnep" ];
       UseDns = true;
     };
