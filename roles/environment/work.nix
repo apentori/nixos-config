@@ -37,6 +37,7 @@ in {
     gnupg gnupg1
     pinentry-tty
     (callPackage ../../packages/stacking-deposit.nix {})
+    (callPackage ../../packages/fence.nix {})
   ];
 
   users.users.irotnep.packages = with pkgs; [
