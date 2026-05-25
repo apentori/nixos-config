@@ -11,18 +11,7 @@
     thunderbird
     pdftk # PDF modidification tools
     # Game dev
-    godot_4
-    # Security
-    #clamav clamtk
+    godot_4 unityhub
   ];
 
- # services.clamav = {
- #   daemon.enable=true;
- #   updater = {
- #     enable = true;
- #     frequency = 1;
- #     interval = "daily";
- #     };
- #   scanner.enable= true;
- # };
 }
