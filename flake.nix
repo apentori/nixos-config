@@ -10,6 +10,7 @@
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
+    opencode.url = "github:anomalyco/opencode";
   };
 
   outputs = {
@@ -20,6 +21,7 @@
     agenix,
     zen-browser,
     tuxedo-nixos,
+    opencode,
     ...
   }@inputs:
     let

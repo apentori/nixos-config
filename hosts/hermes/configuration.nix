@@ -44,6 +44,7 @@
     displaylink
     tuxedo-rs
     inputs.zen-browser.packages."${system}".default
+    inputs.opencode.packages."${system}".default
   ];
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "radeonsi";

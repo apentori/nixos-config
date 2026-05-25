@@ -8,6 +8,7 @@
     # Connect phones
     feishin yt-dlp id3v2
     ungoogled-chromium
+    thunderbird
     pdftk # PDF modidification tools
     # Game dev
     godot_4
