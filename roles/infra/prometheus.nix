@@ -6,7 +6,7 @@ let
   default = { netdata = 9000;};
 
   hosts = {
-    "hyperion.irotn.ep" = default // { loki = 3030; };
+    "hyperion.irotn.ep" = default // { loki = 3030; clickhouse = 9363;};
     "hermes.irotn.ep" = default;
     "atlas.irotn.ep" = default;
   };
@@ -31,8 +31,9 @@ in {
     enable = true;
     globalConfig.scrape_interval = "10s";
     scrapeConfigs = [
-      (genScrapeJob { name = "netdata";   path = "/api/v1/allmetrics";})
-      (genScrapeJob { name = "loki";      path = "/metrics"; })
+      (genScrapeJob { name = "netdata";     path = "/api/v1/allmetrics";})
+      (genScrapeJob { name = "loki";        path = "/metrics"; })
+      (genScrapeJob { name = "clickhouse";  path = "/metrics"; })
     ];
 
   };
