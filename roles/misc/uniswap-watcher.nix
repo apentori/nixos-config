@@ -56,7 +56,7 @@
     };
     trade-tracker = {
       enable = true;
-      follow = false;
+      follow = true;
       clickhouse = {
         host = "localhost";
         port = 9001;
