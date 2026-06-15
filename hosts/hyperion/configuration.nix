@@ -61,10 +61,19 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+
+
   nixpkgs = {
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
+        "docker-28.5.2"
       ];
     };
   };
