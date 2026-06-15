@@ -11,6 +11,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
     opencode.url = "github:anomalyco/opencode";
+    trade-tracker.url = "github:apentori/evm-trade-tracker?rev=8389a97e3f8ce899c9032efa7f0c04d962d78568";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
     zen-browser,
     tuxedo-nixos,
     opencode,
+    trade-tracker,
     ...
   }@inputs:
     let
@@ -71,6 +73,7 @@
         modules = [
         overlayModule
         agenix.nixosModules.default
+        trade-tracker.nixosModules.default
         ./hosts/hyperion/configuration.nix
         ];
       };

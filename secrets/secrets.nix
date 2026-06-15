@@ -28,5 +28,5 @@ in
   "services/habitsync/jwt-secret.age" = { publicKeys = [ irotnep hyperion mnemosyme hermes ]; };
   "services/uniswap-watcher/api-key.age" = { publicKeys = [ irotnep hyperion mnemosyme hermes ]; };
   "services/uniswap-watcher/clickhouse-password.age" = { publicKeys = [ irotnep hyperion mnemosyme hermes ]; };
-
+  "services/trade-tracker/secrets.age" = { publicKeys = [ irotnep hyperion hermes]; } ;
 }
