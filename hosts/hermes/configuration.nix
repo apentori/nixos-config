@@ -110,7 +110,8 @@
   services.upower.enable = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-33.4.11"
-      "vault-1.18.10"
+    "vault-1.18.10"
+    "docker-28.5.2"
   ];
 
 
