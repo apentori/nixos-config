@@ -2,7 +2,7 @@
 
 let
   lokiPort=3030;
-  lokiHost= "127.0.0.1";
+  lokiHost= "hyprerion.irotn.ep";
 in{
 
   services.promtail = {

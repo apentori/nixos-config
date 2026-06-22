@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ../../roles/environment
       ../../roles/infra/backup.nix
+      ../../roles/infra/promtail.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
