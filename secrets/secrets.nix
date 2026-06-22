@@ -9,6 +9,7 @@ let
 
   mnemosyme = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEMnKNpABJ24znkiHZu3+9Ehipc4Cr6T5iA+hyzA36Mm";
 
+  atlas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPYVxrkTLsT3WfGUsgEjSWgtuO7R04AMrXP7QpYy83r2 root@atlas";
   systems = [ achilleus hyperion mnemosyme ];
 
   all = irotnep ++ systems;
@@ -29,4 +30,5 @@ in
   "services/uniswap-watcher/api-key.age" = { publicKeys = [ irotnep hyperion mnemosyme hermes ]; };
   "services/uniswap-watcher/clickhouse-password.age" = { publicKeys = [ irotnep hyperion mnemosyme hermes ]; };
   "services/trade-tracker/secrets.age" = { publicKeys = [ irotnep hyperion hermes]; } ;
+  "services/restic/http-password.age" = {publicKeys = [irotnep hyperion atlas hermes ]; };
 }

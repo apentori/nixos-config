@@ -4,6 +4,7 @@
     [
       ./hardware-configuration.nix
       ../../roles/environment
+      ../../roles/infra/backup.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -55,6 +56,7 @@
     config = {
       allowUnfree = true;
       permittedInsecurePackages = [
+        "docker-28.5.2"
       ];
     };
   };

@@ -88,6 +88,8 @@
       atlas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
+        overlayModule
+        agenix.nixosModules.default
         ./hosts/atlas/configuration.nix
         ];
 
