@@ -10,7 +10,6 @@
     # Tools
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     tuxedo-nixos.url = "github:sund3RRR/tuxedo-nixos";
-    opencode.url = "github:anomalyco/opencode";
     trade-tracker.url = "github:apentori/evm-trade-tracker?rev=8389a97e3f8ce899c9032efa7f0c04d962d78568";
   };
 
@@ -22,7 +21,6 @@
     agenix,
     zen-browser,
     tuxedo-nixos,
-    opencode,
     trade-tracker,
     ...
   }@inputs:
