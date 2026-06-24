@@ -12,6 +12,7 @@
     pdftk # PDF modidification tools
     # Game dev
     godot_4 unityhub
+    restic
   ];
 
 }

@@ -11,6 +11,7 @@
       ../../roles/environment/crypto.nix
       ../../roles/environment/themes.nix
       ../../roles/infra/prometheus.nix
+      ../../roles/infra/promtail.nix
       ../../pkgs
     ];
 
@@ -44,7 +45,6 @@
     displaylink
     tuxedo-rs
     inputs.zen-browser.packages."${system}".default
-    inputs.opencode.packages."${system}".default
   ];
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "radeonsi";
@@ -93,6 +93,10 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        libva-vdpau-driver
+        libvdpau-va-gl
+    ];
     };
   };
 
