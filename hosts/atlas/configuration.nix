@@ -11,12 +11,34 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+ # Load the NVIDIA kernel module
+  boot.kernelModules = [ "nvidia" ];
+  boot.extraModprobeConfig = ''
+    options nvidia-drm modeset=1
+  '';
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; # Required for 32-bit games (Steam, Wine, etc.)
+  };
+  hardware.nvidia = {
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    # CRITICAL: GM107 (Maxwell) does NOT support the open-source kernel module.
+    open = false;
+    # Enable the Nvidia settings menu (nvidia-settings)
+    nvidiaSettings = true;
+    # Use the stable production driver branch
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
   networking = {
     hostName = "atlas";
     hostId = "8425e349";
     networkmanager.enable = true;
+    interfaces.eth0.useDHCP = true;
   };
+  systemd.services.NetworkManager.wantedBy = [ "multi-user.target" ];
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
